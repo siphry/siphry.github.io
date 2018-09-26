@@ -5,8 +5,6 @@ h1 {
 
 body {
     background-color: pink;
-    background-image: url("sailormoon_cleric1a2.png");
-    background-repeat: repeat-x;
 }
 
 .content {
@@ -20,7 +18,7 @@ p.dashed {
 }
 
 .container {
-    padding: 200px;
+    padding: 100px;
 }
 
 .space {
