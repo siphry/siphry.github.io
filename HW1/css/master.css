@@ -5,11 +5,26 @@ h1 {
 
 body {
     background-color: pink;
+    background-image: url("sailormoon_cleric1a2.png");
+    background-repeat: repeat-x;
 }
 
 .content {
-    background-color: white;
     padding: 30px;
+}
+
+p.dashed {
+    border-style: dashed;
+    border-color: white;
+    padding: 10px;
+}
+
+.container {
+    padding: 200px;
+}
+
+.space {
+    background-color: palevioletred;
 }
 
 ul {
@@ -33,5 +48,5 @@ li a {
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
-    background-color: #111;
+    background-color: pink;
 }
