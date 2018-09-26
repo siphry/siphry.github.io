@@ -21,19 +21,12 @@ p.dashed {
     padding: 100px;
 }
 
-.space {
+.box {
     background-color: palevioletred;
 }
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
-li {
-    float: left;
+ul.list2{
+    list-style-type: circle;
 }
 
 li a {
