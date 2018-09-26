@@ -2,3 +2,13 @@ h1 {
     color: palevioletred;
     margin-left: 90px;
 }
+
+body {
+    background-image: url("sailormoon_cleric1a2.png");
+    background-color: pink;
+    background-repeat: repeat-x;
+}
+
+.content {
+    background-color: white;
+}
