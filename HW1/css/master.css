@@ -1,26 +1,38 @@
 h1 {
-    color: palevioletred;
+    color: darkslategray;
     margin-left: 90px;
 }
 
+h3 {
+    color: lightslategray;
+    padding: 15px;
+}
+
 body {
-    background-color: pink;
+    background-color: grey;
 }
 
 .content {
-    background-color: white;
     padding: 30px;
 }
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+p.dashed {
+    border-style: dashed;
+    border-color: white;
+    padding: 10px;
 }
 
-li {
-    float: left;
+.container {
+    padding: 70px;
+}
+
+.box {
+    background-color: darkslategrey;
+    color: white;
+}
+
+ul.list2{
+    list-style-type: circle;
 }
 
 li a {
@@ -33,5 +45,6 @@ li a {
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
-    background-color: #111;
+    background-color: black;
 }
+
