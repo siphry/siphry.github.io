@@ -31,7 +31,7 @@ git push origin [branch]
 I use `add .` because I am usually altering multiple files at a time and don't want to miss anything. Then I check the status just to make sure things are looking good.
 I make a multiple commits because I like to check to make sure the alterations I am making actually work properly before I write a ton of code, in case I am incorrect.
 
-Unfortunately, I switch between my surface and my pc a lot. Originally I was using two branches separately depending on where I was working, but then it got messy moving things
+Unfortunately, I switch between my Surface and my PC a lot. Originally I was using two branches separately depending on where I was working, but then it got messy moving things
 to the master branch...but I often forget to pull first after switching machines so I run into the mess of my commits not lining up.
 
 ### Step 3 [Content/Coding]
@@ -105,6 +105,8 @@ I had a really hard time getting the UL to work. Every time I added it the items
 inline list coded into the `ul` class in my master css file, even with a custom `list2` class, it kept listing them horizontally and overlapping. Once I removed the `ul` section from my css file, I was able to get the list working properly. 
 
 ##### Table
+I like the look of the basic bordered table, since it reminds me of the design of my old geocities websites I used to make (all table based designs...). I just made a simple white table to list the base prices of what I would charge for commissions of my art.
+
 ```html
 <h3>Commission Sizes and Prices</h3>
     <p>The prices listed are base prices and may increase per commission difficulty/detail.</p>            
@@ -137,6 +139,9 @@ inline list coded into the `ul` class in my master css file, even with a custom 
 ```
 
 ##### CSS Style Sheet
+This is not my entire css file, but a snippet that showcases and I customized my headers as well as shows some of the custom classes I created for my webpages. 
+I wanted to push down the content of my page rather than having it sit right below the navbar, which is why there are two container type classes that just have padding in them.
+
 ```css
 h1 {
     color: rgb(83, 23, 38);
@@ -167,6 +172,13 @@ body {
 ```
 
 ### Step 4 [Test]
+This step was pretty natural/necessary for me since, as discussed earlier, I often switch between my Surface and my PC. I started my project on my Surface, then when I went to put it on my PC I cloned the file via 
+
+```
+git clone https://github.com/siphry/CS460.git
+```
+
+(this was before I renamed my repository to siphry.github.io) I opened my webpages and they looked as I had written them on my Surface. I have done this multiple times (minus the cloning -- pulling the files instead).
 
 ### Step 5-6 [Setup/Portfolio Content]
 These steps are shown by the existence of this portfolio website. 
