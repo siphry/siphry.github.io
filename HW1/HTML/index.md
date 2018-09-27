@@ -4,6 +4,10 @@ installed and got familiar with various programs and basic web design building b
 a simple webpage to showcase these skills. Through this assignment, I have learned the basics 
 of HTML and CSS. 
 
+### Links
+[Home](https://siphry.github.io)
+[HW1 Demo](https://siphry.github.io/HW1/HTML/home.html)
+
 ### Step 1 [Setup]  
 I already had a GitHub account set up from my summer internship at University of Connecticut, but I had not worked with it via a bash or command line. I downloaded and installed Git, Bootstrap, and Visual Studio Code, and enabled the necessary plugins for Visual Studio for both this assignment and future assignments. I set up folders on both my Surface and my home PC so I can switch between working at home and working on campus. I will keep each assignment in it’s own folder separately within a main CS460 folder. 
 
@@ -34,18 +38,27 @@ to the master branch...but I often forget to pull first after switching machines
 Once the basics were complete, I jumped right into making the website since I wanted to get that part done completely before moving on to writing my blog.
 I used [W3Schools](https://www.w3schools.com/bootstrap4/default.asp) for help on bootstrap and css styling. Here is a sample code of my navbar using bootstrap.
 
+#### Bootstrap Navbar
 ```
 <nav class="navbar navbar-expand-sm navbar-custom">
-      <ul class="navbar-nav">
+    <ul class="navbar-nav">
         <li class="nav-item">
             <a class="nav-link active" href="../HTML/home.html">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../HTML/link1.html">Art</a>
+            <a class="nav-link" href="../HTML/link1.html">Art</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="../HTML/link2.html">Commission</a>
         </li>
-      </ul>
-      </nav>
+    </ul>
+</nav>
 ```
+
+I customized my navbar by creating a new class `navbar-custom` so I could have a navigation bar with colors that matched the rest of the webpage.
+
+#### Columns and Table
+
+#### Lists (UL and DL)
+
+#### CSS Style Sheet
