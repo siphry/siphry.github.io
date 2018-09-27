@@ -11,5 +11,5 @@ I hope to graduate this year upon completion of the senior sequence. I am curren
 Email: stacia.i.fry@gmail.com
 
 ### Homework Assignments
-[HW 1: HTML, Bootstrap, CSS, and Git](https://siphry.github.io/pages/hw1blog.md)
+[HW 1: HTML, Bootstrap, CSS, and Git](https://siphry.github.io/HW1/HTML)
 HW 2: TBD...
