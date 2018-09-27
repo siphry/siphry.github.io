@@ -5,7 +5,7 @@ a simple webpage to showcase these skills. Through this assignment, I have learn
 of HTML and CSS. 
 
 ### Links
-[Home](https://siphry.github.io)
+[Home](https://siphry.github.io)  
 [HW1 Demo](https://siphry.github.io/HW1/HTML/home.html)
 
 ### Step 1 [Setup]  
@@ -38,7 +38,7 @@ to the master branch...but I often forget to pull first after switching machines
 Once the basics were complete, I jumped right into making the website since I wanted to get that part done completely before moving on to writing my blog.
 I used [W3Schools](https://www.w3schools.com/bootstrap4/default.asp) for help on bootstrap and css styling. Here is a sample code of my navbar using bootstrap.
 
-#### Bootstrap Navbar
+##### Bootstrap Navbar
 ```
 <nav class="navbar navbar-expand-sm navbar-custom">
     <ul class="navbar-nav">
@@ -57,8 +57,117 @@ I used [W3Schools](https://www.w3schools.com/bootstrap4/default.asp) for help on
 
 I customized my navbar by creating a new class `navbar-custom` so I could have a navigation bar with colors that matched the rest of the webpage.
 
-#### Columns and Table
+##### Columns and Lists (DL and UL)
+I decided to combine the columns and lists requirments onto the same page by place two different list styles into two columns.
+I used the description list and the unordered lists for these examples. Since my website was built around my art portfolio, I used the DL to 
+list and describe my completed commissions and their costs, while the UL simply lists a art series I did over the summer.
 
-#### Lists (UL and DL)
+```
+<h3>D&D Commission Examples and Sailor Moon Series</h3>
+    <div class="col-xl-6">
+        <dl>
+            <dt>Female Half-Orc</dt>
+            <dd>My first commission, headshot, $75</dd>
+            <dd> <img src="../images/halforc.png"></dd>
+            <dt>Male Tielfing</dt>
+            <dd>Bust, $50
+            <dd><img src="../images/max.png"></dd>
+            <dt>Male Aasimar</dt>
+            <dd>Bust, gift for friend
+            <dd><img src="../images/gresh.png"></dd>
+            <dt>Male Half-Orc</dt>
+            <dd>Bust, gift for friend
+            <dd><img src="../images/orc_abyss.png"></dd>
+        </dl>
+                  
+    </div>
+               
+    <div class="col-xl-6">
+        <div class="list">
+            <ul class="list2">
+            <li>Sailor Moon x Dungeons and Dragons</li>
+            <li>Sailor Moon the Cleric</li>
+            <img src="../images/sailormoon_cleric_originalDONE.png">
+            <li>Sailor Mercury the Wizard</li>
+            <img src="../images/sailormercury_wizardDONE.png">
+            <li>Sailor Mars the Ranger</li>
+            <img src="../images/sailormars_rangerDONE.png">
+            <li>Sailor Jupiter the Druid</li>
+            <img src="../images/sailorjupiter_druidDONE.png">
+            <li>Sailor Venus the Fighter</li>
+            <img src="../images/sailorvenus_fighterDONE.png">
+            </ul>
+        </div>
+    </div>  
+```
 
-#### CSS Style Sheet
+I had a really hard time getting the UL to work. Every time I added it the items were listed inline. I had forgotten that I used UL for the navbar, and it had
+inline list coded into the `ul` class in my master css file, even with a custom `list2` class, it kept listing them horizontally and overlapping. Once I removed the `ul` section from my css file, I was able to get the list working properly. 
+
+##### Table
+```
+<h3>Commission Sizes and Prices</h3>
+    <p>The prices listed are base prices and may increase per commission difficulty/detail.</p>            
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Size</th>
+                    <th>Detail</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Head</td>
+                    <td>Full Color</td>
+                    <td>$35</td>
+                </tr>
+                <tr>
+                    <td>Bust</td>
+                    <td>Full Color</td>
+                    <td>$50</td>
+                </tr>
+                <tr>
+                    <td>3/4 Body</td>
+                    <td>Full Color</td>
+                    <td>$75</td>
+                </tr>
+            </tbody>
+        </table>
+```
+
+##### CSS Style Sheet
+```
+h1 {
+    color: rgb(83, 23, 38);
+    margin-left: 90px;
+}
+
+h3 {
+    color: rgb(83, 23, 38);
+    padding: 15px;
+}
+
+body {
+    background-color: rgb(199, 140, 160);
+}
+
+.content {
+    padding: 30px;
+}
+
+.container {
+    padding: 70px;
+}
+
+.box {
+    background-color: rgb(143, 62, 89);
+    color: white;
+}
+```
+
+### Step 4 [Test]
+
+### Step 5-6 [Setup/Portfolio Content]
+These steps are shown by the existence of this portfolio website. 
+
