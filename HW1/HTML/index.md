@@ -15,11 +15,37 @@ git config --global user.name “siphry”
 git config --global user.email “stacia.i.fry@gmail.com”
 ```
 
-To add my changes made through Visual, I follow this base cycle of commands in the bash:
+### Step 2 [Setup]
+To add my files or changes made through Visual, I follow this base cycle of commands in the bash:
 
 ```
 git add . 
 git status
 git commit -m "commit message here"
 git push origin [branch]
+```
+I use `add .` because I am usually altering multiple files at a time and don't want to miss anything. Then I check the status just to make sure things are looking good.
+I make a multiple commits because I like to check to make sure the alterations I am making actually work properly before I write a ton of code, in case I am incorrect.
+
+Unfortunately, I switch between my surface and my pc a lot. Originally I was using two branches separately depending on where I was working, but then it got messy moving things
+to the master branch...but I often forget to pull first after switching machines so I run into the mess of my commits not lining up.
+
+### Step 3 [Content/Coding]
+Once the basics were complete, I jumped right into making the website since I wanted to get that part done completely before moving on to writing my blog.
+I used [W3Schools](https://www.w3schools.com/bootstrap4/default.asp) for help on bootstrap and css styling. Here is a sample code of my navbar using bootstrap.
+
+```
+<nav class="navbar navbar-expand-sm navbar-custom">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link active" href="../HTML/home.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../HTML/link1.html">Art</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="../HTML/link2.html">Commission</a>
+        </li>
+      </ul>
+      </nav>
 ```
