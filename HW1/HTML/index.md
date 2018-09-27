@@ -39,7 +39,7 @@ Once the basics were complete, I jumped right into making the website since I wa
 I used [W3Schools](https://www.w3schools.com/bootstrap4/default.asp) for help on bootstrap and css styling. Here is a sample code of my navbar using bootstrap.
 
 ##### Bootstrap Navbar
-```
+```html
 <nav class="navbar navbar-expand-sm navbar-custom">
     <ul class="navbar-nav">
         <li class="nav-item">
@@ -62,7 +62,7 @@ I decided to combine the columns and lists requirments onto the same page by pla
 I used the description list and the unordered lists for these examples. Since my website was built around my art portfolio, I used the DL to 
 list and describe my completed commissions and their costs, while the UL simply lists a art series I did over the summer.
 
-```
+```html
 <h3>D&D Commission Examples and Sailor Moon Series</h3>
     <div class="col-xl-6">
         <dl>
@@ -105,7 +105,7 @@ I had a really hard time getting the UL to work. Every time I added it the items
 inline list coded into the `ul` class in my master css file, even with a custom `list2` class, it kept listing them horizontally and overlapping. Once I removed the `ul` section from my css file, I was able to get the list working properly. 
 
 ##### Table
-```
+```html
 <h3>Commission Sizes and Prices</h3>
     <p>The prices listed are base prices and may increase per commission difficulty/detail.</p>            
         <table class="table table-bordered">
@@ -137,7 +137,7 @@ inline list coded into the `ul` class in my master css file, even with a custom 
 ```
 
 ##### CSS Style Sheet
-```
+```css
 h1 {
     color: rgb(83, 23, 38);
     margin-left: 90px;
