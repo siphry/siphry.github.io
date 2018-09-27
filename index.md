@@ -11,4 +11,5 @@ I hope to graduate this year upon completion of the senior sequence. I am curren
 
 ### Homework Assignments
 [HW 1 Blog]()
+
 [HW 1 Demo](https://github.com/siphry/siphry.github.io/blob/master/HW1/HTML/home.html)
