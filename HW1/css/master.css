@@ -53,14 +53,11 @@ li a:hover {
     background: palevioletred;
 }
 
-a active {
+active a {
     color: pink;
 }
-
-
 
 a:-webkit-any-link {
     color: white;
     cursor: pointer;
 }
-
