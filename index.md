@@ -7,9 +7,9 @@ I hope to graduate this year upon completion of the senior sequence. I am curren
 
 ### Code Repository and Contact
 
-[GitHub](https://github.com/siphry/siphry.github.io)
+[GitHub](https://github.com/siphry/siphry.github.io)  
 Email: stacia.i.fry@gmail.com
 
 ### Homework Assignments
-[HW 1: HTML, Bootstrap, CSS, and Git](https://siphry.github.io/HW1/HTML)
+[HW 1: HTML, CSS, Git and Bootstrap](https://siphry.github.io/HW1/HTML)  
 HW 2: TBD...
