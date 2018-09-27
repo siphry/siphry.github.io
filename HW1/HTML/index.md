@@ -10,16 +10,16 @@ I already had a GitHub account set up from my summer internship at University of
 First I added an empty README through GitHub's website, then created and organized all my folders via Visual Studio Code. While all my folder and file organization is done via
 Visual, all updates to my repository are done from Git Bash. I set up the bash by following the tutorial from [Don't be Afraid to Commit](https://dont-be-afraid-to-commit.readthedocs.io/en/latest/git/commandlinegit.html):
 
-'''
+```
 git config --global user.name “siphry”
 git config --global user.email “stacia.i.fry@gmail.com”
-'''
+```
 
 To add my changes made through Visual, I follow this base cycle of commands in the bash:
 
-'''
+```
 git add . 
 git status
 git commit -m "commit message here"
 git push origin [branch]
-'''
+```
