@@ -7,7 +7,7 @@ of HTML and CSS.
 ### Links
 [Home](https://siphry.github.io)  
 [Assignment Details](http://www.wou.edu/~morses/classes/cs46x/assignments/HW1.html)  
-[Code Repository](https://github.com/siphry/siphry.github.io/tree/master/HW1)
+[Code Repository](https://github.com/siphry/siphry.github.io/tree/master/HW1)  
 [HW1 Demo](https://siphry.github.io/HW1/HTML/home.html)
 
 ### Step 1 [Setup]  
