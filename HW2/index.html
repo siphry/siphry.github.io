@@ -11,28 +11,17 @@
     <div class="container">
         <div class="header-image"></div>
           
-                <h1>the SPOOPY NAME GENERATOR</h1>
+            <h1>the SPOOPY NAME GENERATOR</h1>
  
-                    <p>Please input your first and last name to find your SPOOPY name!</p>
-                    <input type="text" id="firstN" value="First name">
-                    <input type="text" id="lastN" value="Last name">
-                    <button onclick="getName()">Find your name!</button>
-                    <dl id="result">
-                        <dt>Results display here:</dt>
-                    </dl>
-                <div class="footer-image"></div>
-            </div>
-        <div class ="row">
-            <div class="col-xl-6">
-                <p>test</p>
-            </div>
-            <div class="col-xl-6">
-                    <p>test</p>
-            </div>
-        </div>
-
-        
-    
+            <p>Please input your first and last name to find your SPOOPY name!</p>
+            <input type="text" id="firstN" value="First name" onkeyup="lettersOnly(this)">
+            <input type="text" id="lastN" value="Last name" onkeyup="lettersOnly(this)">
+            <button onclick="getName()">Find your spoopy name!</button>
+            <dl id="result">
+            <dt>Results display here:</dt>
+            </dl>
+        <div class="footer-image"></div>
+    </div>
 </div>
     <script src="hw2.js"></script>
 </body>
