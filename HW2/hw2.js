@@ -5,7 +5,8 @@ var lastNames = ["a", "Rubyellus", "b", "Javas", "c", "Pythonos", "d", "Fortranu
 "Nekro", "i", "Moon", "j", "Drizzt", "k", "Ben-Mezd", "l", "Gruffen", "m", "Auros", "p", "Artorius", "q", "Aldrich", "r", "Ornstein", "s",
 "Bezel", "t", "Abyssl", "u", "Gael", "v", "Adella", "w", "Yaharl", "x", "Woolf", "y", "Quaim", "z", "Tryst"]
 var titles = ["the Crypt Destroyer", "the Soul Devourer", "the Shrieking Tomb", "the Blind Prescence", "the Silent Hunter", "the Blood Syphon", "the Black Rain", 
-"the Ghost Flayer", "the Weeping Spirit", "the Lost Child", "the Fallen", "the Normal", "the Bloodlust"]
+"the Ghost Flayer", "the Weeping Spirit", "the Lost Child", "the Fallen", "the Normal", "the Bloodlust", "the Smile Stealer",
+"the Wailing Siren", "the Stinking Wretch", "the Unseen Butcher", "the Witch of the North"]
 
 function getName() {
     var first = document.getElementById("firstN").value;
@@ -23,5 +24,4 @@ function getName() {
     var textnode = document.createTextNode(fullName);
     node.appendChild(textnode);
     document.getElementById("result").appendChild(node);
-   
 }
