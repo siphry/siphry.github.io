@@ -1,0 +1,32 @@
+h1 {
+    color: black;
+    font-style: oblique;
+}
+
+body {
+    background-color: rgb(29, 29, 29);
+    color: black;
+}
+
+.header-image {
+    padding-top: 100px;
+    background-image: url("../HW2/images/60325712-stock-vector-halloween-seamless-pattern-with-orange-pumpkin-spider-web-candy-witch-hat-broom-and-cauldron-skull-a.jpg");
+    background-repeat: repeat-x;
+}
+
+.footer-image {
+    padding-top: 100px;
+    background-image: url("../HW2/images/60325712-stock-vector-halloween-seamless-pattern-with-orange-pumpkin-spider-web-candy-witch-hat-broom-and-cauldron-skull-a.jpg");
+    background-repeat: repeat-x;
+}
+
+.container {
+    text-align: center;
+    padding: 100px;
+    background-color: darkorange;
+    
+}
+
+.col-xl-6 {
+    color: white;
+}
