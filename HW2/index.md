@@ -120,4 +120,7 @@ This is what the homepage looks like before any names have been generated.
 ![the SPOOPY NAME GENERATOR](https://siphry.github.io/HW2/images/generated_names.PNG)  
 This shows a few names generated as well as the changing banner that occurs on click.
 
-#### Notes
+#### Notes and Resources
+[W3Schools Javascript](https://www.w3schools.com/js/)  
+[W3Schools JQuery](https://www.w3schools.com/jquery/default.asp)  
+[JQuery](https://api.jquery.com/)  
