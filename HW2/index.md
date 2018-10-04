@@ -21,8 +21,90 @@ My original design was similar to the webpage I created for assignment 1, but wh
 
 ### Step 4 [Content/Coding]
 *index.html and hw2.js are found in the HW2/HTML while styles.css is found in HW2/css* 
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/styles.css">
+        <title>the SPOOPY GENERATOR</title>
+    </head>
+<body>
+    <div class="container">
+         <!--This image is replaced randomly via JQuery upon button click above-->  
+        <div class="header-image"></div>
+          
+            <h1>the SPOOPY NAME GENERATOR</h1>
+ 
+            <p>Please input your first and last name to find your SPOOPY name!</p>
+            <!--These two input types create single line text boxes for user input-->
+            <input type="text" id="firstN" value="First name" onkeyup="lettersOnly(this)">
+            <input type="text" id="lastN" value="Last name" onkeyup="lettersOnly(this)">
+            <!--This button calls the javascript function getName() upon click-->
+            <button onclick="getName()">Find your spoopy name!</button>
+            <!--An empty list for JQuery in the .js file to append with the generated names-->
+            <dl id="result">
+            <dt>Results display here:</dt>
+               <div class="result_list"></div>
+            </dl>
+        <!--This image is replaced randomly via JQuery upon button click above-->    
+        <div class="footer-image"></div>
+    </div>
+</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../HTML/hw2.js"></script>
+</body>
+</html>
+```   
+
+I kept the HTML for this assignment relatively simple, and I preferred to keep the Javascript separate from the HTML. Once again, I used [W3Schools](https://www.w3schools.com/jsref/jsref_obj_array.asp), as well as [this](https://medium.freecodecamp.org/creating-a-bare-bones-quote-generator-with-javascript-and-html-for-absolute-beginners-5264e1725f08) blog for inspiration and reference to create my name generator. I also checked stack overflow whenever I ran into issues, such as when I couldn't figure out how to replace the background image in the .css file via the .js file with JQuery.    
+
+```javascript
+var firstNames = ["a", "Craven", "b", "Ahru", "c", "Sybil", "d", "Dracen", "e", "Elfin", "f", "Jeff", "g", "Zion", "h", "Fane", "i", "Lunas", 
+"j", "Myst", "k", "Jahan", "l", "Shade", "m", "Hellis", "n", "Judis", "o", "Micah", "p", "Siffry", "q", "Solaire", "r", "Zibits", "s", "Beel", 
+"t", "Lozaim", "u", "Poe", "v", "Drael", "w", "Cole", "x", "Varrik", "y", "Zaylor", "z", "Kym"]
+var lastNames = ["a", "Rubyellus", "b", "Javas", "c", "Pythonos", "d", "Fortranus", "e", "Deth", "f", "Haskellum", "g", "Seaquillis", "h", 
+"Nekro", "i", "Moon", "j", "Drizzt", "k", "Ben-Mezd", "l", "Gruffen", "m", "Auros", "p", "Artorius", "q", "Aldrich", "r", "Ornstein", "s",
+"Bezel", "t", "Abyssl", "u", "Gael", "v", "Adella", "w", "Yaharl", "x", "Woolf", "y", "Quaim", "z", "Tryst"]
+var titles = ["the Crypt Destroyer", "the Soul Devourer", "the Shrieking Tomb", "the Blind Prescence", "the Silent Hunter", "the Blood Syphon", "the Black Rain", 
+"the Ghost Flayer", "the Weeping Spirit", "the Lost Child", "the Fallen", "the Normal", "the Bloodlust", "the Smile Stealer",
+"the Wailing Siren", "the Stinking Wretch", "the Unseen Butcher", "the Witch of the North"]
+
+var imageList = ["../images/bg1.jpg", "../images/bg2.jpg", "../images/bg3.jpg"]
+
+//this function occurs when the user clicks the button in order to generate the SPOOPY name
+function getName() {
+    var first = document.getElementById("firstN").value; //this pulls the user input into the var first
+    var firstLower = first.toLowerCase(); //converts string to all lower case letters
+    var fInit = firstLower.charAt(0).toString(); //grabs the first char from the string and converts back to string
+    var last = document.getElementById("lastN").value; //repeat previous steps with second input form
+    var lastLower = last.toLowerCase(); //""
+    var lInit = lastLower.charAt(0).toString(); //""
+    var newFirst = firstNames[(firstNames.indexOf(fInit)) + 1]; //using the initial, find the corresponding name from the list firstNames
+    var newLast = lastNames[(lastNames.indexOf(lInit)) + 1]; //using the initial, find the corresponding name from the list lastNames
+    var rando = Math.floor(Math.random() * (titles.length)); //pick a random number from 0 to length of list titles
+    var title = titles[rando]; //assigns random title from list to var title
+    var fullName = newFirst + " " + newLast + " " + title; //generate a string of the spoopy name
+    $(".result_list").append("<dd>" + fullName + "</dd>") //append detailed list with newly generated name with JQuery
+    var listRando = Math.floor(Math.random() * (imageList.length)); //generate a random number to pick new header/footer bg
+    var newBG = imageList[listRando]; //assigns that bg to a string
+    $(".header-image").css("background-image", "url(" + newBG + ")"); //replace old bg with new bg url via JQuery and css
+    $(".footer-image").css("background-image", "url(" + newBG + ")"); //replace old bg with new bg url via JQuery and css
+}
+
+//This functions makes sure that the user only inputs alpha characters
+function lettersOnly(input){
+    var regex = /[^a-z]/gi;
+    input.value = input.value.replace(regex, "");
+}
+```   
+
+I also tried to keep my Javascript relatively short and simple as well, however I do think that my `getName()` function could be cleaner and simpler, but I could not think of a better way to link the user inputted initials with my Halloween-themed names. I found the `lettersOnly()` function on [YouTube](https://www.youtube.com/watch?v=OpajusnOfYo), since I could not get any regex pattern matching to work with my text inputs. 
 
 ### Step 5 [Test]
+![git log](https://siphry.github.io/HW2/images/gitlog.PNG)
 
 ### Step 6 [Turn it In]
 
