@@ -12,4 +12,5 @@ Email: stacia.i.fry@gmail.com
 
 ### Homework Assignments
 [HW 1: HTML, CSS, Git and Bootstrap](https://siphry.github.io/HW1/HTML)  
-[HW 2: Javascript, JQuery, DOM](https://siphry.github.io/HW2) 
+[HW 2: Javascript, JQuery, DOM](https://siphry.github.io/HW2/) 
+HW 3: TBD...

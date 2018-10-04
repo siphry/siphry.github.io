@@ -8,7 +8,7 @@ var titles = ["the Crypt Destroyer", "the Soul Devourer", "the Shrieking Tomb", 
 "the Ghost Flayer", "the Weeping Spirit", "the Lost Child", "the Fallen", "the Normal", "the Bloodlust", "the Smile Stealer",
 "the Wailing Siren", "the Stinking Wretch", "the Unseen Butcher", "the Witch of the North"]
 
-var imageList = ["../HW2/images/bg1.jpg", "../HW2/images/bg2.jpg", "../HW2/images/bg3.jpg"]
+var imageList = ["../images/bg1.jpg", "../images/bg2.jpg", "../images/bg3.jpg"]
 
 function getName() {
     var first = document.getElementById("firstN").value;
