@@ -1,0 +1,64 @@
+h1 {
+    color: rgb(83, 23, 38);
+    margin-left: 90px;
+}
+
+h3 {
+    color: rgb(83, 23, 38);
+    padding: 15px;
+}
+
+body {
+    background-color: rgb(199, 140, 160);
+}
+
+.content {
+    padding: 30px;
+    color: white;
+}
+
+p.dashed {
+    border-style: dashed;
+    border-color: white;
+    padding: 10px;
+}
+
+.container {
+    padding: 70px;
+}
+
+.box {
+    background-color: rgb(143, 62, 89);
+    color: white;
+}
+
+ul.list2{
+    list-style-type: circle;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: rgb(143, 62, 89);
+    color: pink;
+}
+
+.navbar-custom {
+    background: palevioletred;
+}
+
+active a {
+    color: pink;
+}
+
+a:-webkit-any-link {
+    color: white;
+    cursor: pointer;
+}

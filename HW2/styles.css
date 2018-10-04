@@ -10,13 +10,13 @@ body {
 
 .header-image {
     padding-top: 100px;
-    background-image: url("../HW2/images/60325712-stock-vector-halloween-seamless-pattern-with-orange-pumpkin-spider-web-candy-witch-hat-broom-and-cauldron-skull-a.jpg");
+    background-image: url("../HW2/images/bg1.jpg");
     background-repeat: repeat-x;
 }
 
 .footer-image {
     padding-top: 100px;
-    background-image: url("../HW2/images/60325712-stock-vector-halloween-seamless-pattern-with-orange-pumpkin-spider-web-candy-witch-hat-broom-and-cauldron-skull-a.jpg");
+    background-image: url("../HW2/images/bg1.jpg");
     background-repeat: repeat-x;
 }
 

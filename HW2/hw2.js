@@ -8,6 +8,8 @@ var titles = ["the Crypt Destroyer", "the Soul Devourer", "the Shrieking Tomb", 
 "the Ghost Flayer", "the Weeping Spirit", "the Lost Child", "the Fallen", "the Normal", "the Bloodlust", "the Smile Stealer",
 "the Wailing Siren", "the Stinking Wretch", "the Unseen Butcher", "the Witch of the North"]
 
+var imageList = ["../HW2/images/bg1.jpg", "../HW2/images/bg2.jpg", "../HW2/images/bg3.jpg"]
+
 function getName() {
     var first = document.getElementById("firstN").value;
     var firstLower = first.toLowerCase();
@@ -20,10 +22,11 @@ function getName() {
     var rando = Math.floor(Math.random() * (titles.length));
     var title = titles[rando];
     var fullName = newFirst + " " + newLast + " " + title;
-    var node = document.createElement("DD");
-    var textnode = document.createTextNode(fullName);
-    node.appendChild(textnode);
-    document.getElementById("result").appendChild(node);
+    $(".result_list").append("<dd>" + fullName + "</dd>")
+    var listRando = Math.floor(Math.random() * (imageList.length));
+    var newBG = imageList[listRando];
+    $(".header-image").css("background-image", "url(" + newBG + ")");
+    $(".footer-image").css("background-image", "url(" + newBG + ")");
 }
 
 function lettersOnly(input){
