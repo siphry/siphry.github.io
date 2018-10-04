@@ -2,7 +2,7 @@ var firstNames = ["a", "Craven", "b", "Ahru", "c", "Sybil", "d", "Dracen", "e", 
 "j", "Myst", "k", "Jahan", "l", "Shade", "m", "Hellis", "n", "Judis", "o", "Micah", "p", "Siffry", "q", "Solaire", "r", "Zibits", "s", "Beel", 
 "t", "Lozaim", "u", "Poe", "v", "Drael", "w", "Cole", "x", "Varrik", "y", "Zaylor", "z", "Kym"]
 var lastNames = ["a", "Rubyellus", "b", "Javas", "c", "Pythonos", "d", "Fortranus", "e", "Deth", "f", "Haskellum", "g", "Seaquillis", "h", 
-"Nekro", "i", "Moon", "j", "Drizzt", "k", "Ben-Mezd", "l", "Gruffen", "m", "Auros", "p", "Artorius", "q", "Aldrich", "r", "Ornstein", "s",
+"Nekro", "i", "Moon", "j", "Drizzt", "k", "Ben-Mezd", "l", "Gruffen", "m", "Auros", "n", "Skrull", "o", "Stain", "p", "Artorius", "q", "Aldrich", "r", "Ornstein", "s",
 "Bezel", "t", "Abyssl", "u", "Gael", "v", "Adella", "w", "Yaharl", "x", "Woolf", "y", "Quaim", "z", "Tryst"]
 var titles = ["the Crypt Destroyer", "the Soul Devourer", "the Shrieking Tomb", "the Blind Prescence", "the Silent Hunter", "the Blood Syphon", "the Black Rain", 
 "the Ghost Flayer", "the Weeping Spirit", "the Lost Child", "the Fallen", "the Normal", "the Bloodlust", "the Smile Stealer",
@@ -23,7 +23,7 @@ function getName() {
     var rando = Math.floor(Math.random() * (titles.length)); //pick a random number from 0 to length of list titles
     var title = titles[rando]; //assigns random title from list to var title
     var fullName = newFirst + " " + newLast + " " + title; //generate a string of the spoopy name
-    $(".result_list").append("<dd>" + fullName + "</dd>") //append detailed list with newly generated name with JQuery
+    $(".result_list").append("<dd>" + fullName + "</dd>"); //append detailed list with newly generated name with JQuery
     var listRando = Math.floor(Math.random() * (imageList.length)); //generate a random number to pick new header/footer bg
     var newBG = imageList[listRando]; //assigns that bg to a string
     $(".header-image").css("background-image", "url(" + newBG + ")"); //replace old bg with new bg url via JQuery and css
@@ -31,7 +31,12 @@ function getName() {
 }
 
 //This functions makes sure that the user only inputs alpha characters
-function lettersOnly(input){
+function lettersOnly(input) {
     var regex = /[^a-z]/gi;
     input.value = input.value.replace(regex, "");
+}
+
+//Clears the list
+function clearList() {
+    $(".result_list").empty();    
 }

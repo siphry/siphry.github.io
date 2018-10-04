@@ -12,12 +12,12 @@ I am slowly getting more comfortable exploring different elements of webdesign a
 I created a new folder in the directory, and created the files for this assignment via git bash and the `touch` command. I forgot about working from a new branch until I was almost done with the assignment unfortunately, but created the branch "surface" (later renamed to "hw2) about halfway through the styling process of my webpage after I had worked out most of the actual Javascript elements.    
 
 ### Step 2 [Planning & Design]
-INSERT PICTURE FROM NOTEBOOK HERE!!!! LIST OF NAMES, ETC
+![names sketch](https://siphry.github.io/HW2/images/namelist.jpg)
 At first I had no idea what to do at all, but when talking with other students on Monday someone mentioned a name generator and I decided to make a Halloween themed name generator, since whatever I did I wanted to make Halloween themed since this assignment was started/completed in October. A name generator is a relatively simple but fun project to make. I started by brain storming all of the first and last name options as well as the titles. Originally I did not want to come up with 52 different options but once I started thinking about how to translate the user inputted name into my Halloween-themed names, I decided it would just be simpler to come up with 52 options and assign each option to a letter in the alphabet. I was going to make titles tied to birth month but thought it'd be more fun to choose those randomly instead. 
 
 ### Step 3 [Planning & Design]
-INSERT PICTURE FROM NOTEBOOK HERE!!!! 
-My original design was similar to the webpage I created for assignment 1, but while working on the design in visual studio code and seeing how the name generator/list looked, I decided to go with the end result seen in the demo. The only elements that I really kept from my original design were the colors and including halloween-themed images. 
+![sketch](https://siphry.github.io/HW2/images/sketch.jpg)
+My original design was similar to the webpage I created for assignment 1, but while working on the design in visual studio code and seeing how the name generator/list looked, I decided to go with the end result seen in the demo. The only elements that I really kept from my original design were the colors, center alignment, and including halloween-themed images. 
 
 ### Step 4 [Content/Coding]
 *index.html and hw2.js are found in the HW2/HTML while styles.css is found in HW2/css* 
@@ -49,6 +49,7 @@ My original design was similar to the webpage I created for assignment 1, but wh
             <dt>Results display here:</dt>
                <div class="result_list"></div>
             </dl>
+            <button onclick="clearList()">Clear list</button>
         <!--This image is replaced randomly via JQuery upon button click above-->    
         <div class="footer-image"></div>
     </div>
@@ -99,15 +100,22 @@ function lettersOnly(input){
     var regex = /[^a-z]/gi;
     input.value = input.value.replace(regex, "");
 }
+
+//Clears the list
+function clearList() {
+    $(".result_list").empty();    
+}
 ```   
 
 I also tried to keep my Javascript relatively short and simple as well, however I do think that my `getName()` function could be cleaner and simpler, but I could not think of a better way to link the user inputted initials with my Halloween-themed names. I found the `lettersOnly()` function on [YouTube](https://www.youtube.com/watch?v=OpajusnOfYo), since I could not get any regex pattern matching to work with my text inputs. 
 
 ### Step 5 [Test] & Step 6 [Turn it In]
 ![git log](https://siphry.github.io/HW2/images/gitlog.PNG)  
-Unfortunately I forgot to create a new branch to do everything on, probably due to the issues I ran into with I was working on two different branches for assignment 1. I did eventually create a branch named `surface` (later renamed to `hw2`), after finishing the basic javascript but before finishing my JQuery/css/bootstrap parts. Then, once I got the page working the way I liked, I merged `hw2` back to `master` and wrapped up the assignment/blog on the master branch (once merged, I have not made any changes to the webpage html or javascript). 
+Unfortunately I forgot to create a new branch to do everything on, probably due to the issues I ran into with I was working on two different branches for assignment 1. I did eventually create a branch named *surface* (later renamed to *hw2*), after finishing the basic javascript but before finishing my JQuery/css/bootstrap parts. Then, once I got the page working the way I liked, I merged *hw2* back to *master* and wrapped up the assignment/blog on the master branch (once merged, I have not made any changes to the webpage html or javascript). 
 
 ### Step 7 [Portfolio Content]
 ![the SPOOPY NAME GENERATOR](https://siphry.github.io/HW2/images/home_html.PNG)
+This is what the homepage looks like before any names have been generated.
 
 ![the SPOOPY NAME GENERATOR](https://siphry.github.io/HW2/images/generated_names.PNG)
+This shows a few names generated as well as the changing banner that occurs on click.
