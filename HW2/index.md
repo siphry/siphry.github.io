@@ -20,7 +20,7 @@ INSERT PICTURE FROM NOTEBOOK HERE!!!!
 My original design was similar to the webpage I created for assignment 1, but while working on the design in visual studio code and seeing how the name generator/list looked, I decided to go with the end result seen in the demo. The only elements that I really kept from my original design were the colors and including halloween-themed images. 
 
 ### Step 4 [Content/Coding]
-*index.html and hw2.js are found in the HW2/HWTML while styles.css is found in HW2/css* 
+*index.html and hw2.js are found in the HW2/HTML while styles.css is found in HW2/css* 
 
 ### Step 5 [Test]
 
