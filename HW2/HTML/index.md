@@ -6,4 +6,4 @@ I am slowly getting more comfortable exploring different elements of webdesign a
 [Home](https://siphry.github.io)  
 [Assignment Details](http://www.wou.edu/~morses/classes/cs46x/assignments/HW2.html)  
 [Code Repository](https://github.com/siphry/siphry.github.io/tree/master/HW2)  
-[HW1 Demo](https://siphry.github.io/HW2/home.html)
+[HW1 Demo](https://siphry.github.io/HW2/HTML/home.html)
