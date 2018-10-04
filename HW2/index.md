@@ -111,7 +111,7 @@ I also tried to keep my Javascript relatively short and simple as well, however 
 
 ### Step 5 [Test] & Step 6 [Turn it In]
 ![git log](https://siphry.github.io/HW2/images/gitlog.PNG)  
-Unfortunately I forgot to create a new branch to do everything on, probably due to the issues I ran into with I was working on two different branches for assignment 1. I did eventually create a branch named *surface* (later renamed to *hw2*), after finishing the basic javascript but before finishing my JQuery/css/bootstrap parts. Then, once I got the page working the way I liked, I merged *hw2* back to *master* and wrapped up the assignment/blog on the master branch (once merged, I have not made any changes to the webpage html or javascript). 
+Unfortunately I forgot to create a new branch to do everything on, probably due to the issues I ran into with I was working on two different branches for assignment 1. I did eventually create a branch named *surface* (later renamed to *hw2*), after finishing the basic javascript but before finishing my JQuery/css/bootstrap parts. Then, once I got the page working the way I liked, I merged *hw2* back to *master* and wrapped up the assignment/blog on the master branch.
 
 ### Step 7 [Portfolio Content]
 ![the SPOOPY NAME GENERATOR](https://siphry.github.io/HW2/images/home_html.PNG)
