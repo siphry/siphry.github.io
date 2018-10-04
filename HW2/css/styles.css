@@ -31,8 +31,12 @@ body {
     
 }
 
-.col-md-2 {
-    padding-bottom: 370px;
-    padding-left: 10px;
+.space {
+    padding: 25px;
+}
+
+.gif {
     background-image: url("../images/dance.gif");
+    padding: 150px;
+    background-size: 50%;
 }
