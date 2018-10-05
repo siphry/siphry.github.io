@@ -107,15 +107,20 @@ function clearList() {
 }
 ```   
 
-I also tried to keep my Javascript relatively short and simple as well, however I do think that my `getName()` function could be cleaner and simpler, but I could not think of a better way to link the user inputted initials with my Halloween-themed names. I found the `lettersOnly()` function on [YouTube](https://www.youtube.com/watch?v=OpajusnOfYo), since I could not get any regex pattern matching to work with my text inputs. 
+I also tried to keep my Javascript relatively short and simple as well, however I do think that my `getName()` function could be cleaner and simpler, but I could not think of a better way to link the user inputted initials with my Halloween-themed names. I found the `lettersOnly()` function on [YouTube](https://www.youtube.com/watch?v=OpajusnOfYo), since I could not get any regex pattern matching to work with my text inputs. The functions `getName()` and `clearList()` both use JQuery to alter the HTML on the webpage -- `getName()` appends the generated names to an emtpy detailed list, while `clearList()` then clears all of those appened items from the list section divider.  
 
 ### Step 5 [Test] & Step 6 [Turn it In]
 ![git log](https://siphry.github.io/HW2/images/gitlog.PNG)  
-Unfortunately I forgot to create a new branch to do everything on, probably due to the issues I ran into with I was working on two different branches for assignment 1. I did eventually create a branch named *surface* (later renamed to *hw2*), after finishing the basic javascript but before finishing my JQuery/css/bootstrap parts. Then, once I got the page working the way I liked, I merged *hw2* back to *master* and wrapped up the assignment/blog on the master branch.
+Unfortunately I forgot to create a new branch to do everything on, probably due to the issues I ran into with I was working on two different branches for assignment 1. I did eventually create a branch named *surface* (later renamed to *hw2*), after finishing the basic javascript but before finishing my JQuery/css/bootstrap parts. Then, once I got the page working the way I liked, I merged *hw2* back to *master* and wrapped up the assignment/blog on the master branch. After doing some more work on the portfolio and talking with others, I have changed a few things since the merge so switched back to the *surface* branch until I am completely happy with the blog/website. 
 
 ### Step 7 [Portfolio Content]
-![the SPOOPY NAME GENERATOR](https://siphry.github.io/HW2/images/home_html.PNG)
+![the SPOOPY NAME GENERATOR](https://siphry.github.io/HW2/images/home_html.PNG)  
 This is what the homepage looks like before any names have been generated.
 
-![the SPOOPY NAME GENERATOR](https://siphry.github.io/HW2/images/generated_names.PNG)
+![the SPOOPY NAME GENERATOR](https://siphry.github.io/HW2/images/generated_names.PNG)  
 This shows a few names generated as well as the changing banner that occurs on click.
+
+#### Notes and Resources
+[W3Schools Javascript](https://www.w3schools.com/js/)  
+[W3Schools JQuery](https://www.w3schools.com/jquery/default.asp)  
+[JQuery](https://api.jquery.com/)  
