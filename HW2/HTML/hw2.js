@@ -12,18 +12,14 @@ var imageList = ["../images/bg1.jpg", "../images/bg2.jpg", "../images/bg3.jpg"]
 
 //this function occurs when the user clicks the button in order to generate the SPOOPY name
 function getName() {
-    var first = document.getElementById("firstN").value; //this pulls the user input into the var first
-    var firstLower = first.toLowerCase(); //converts string to all lower case letters
-    var fInit = firstLower.charAt(0).toString(); //grabs the first char from the string and converts back to string
-    var last = document.getElementById("lastN").value; //repeat previous steps with second input form
-    var lastLower = last.toLowerCase(); //""
-    var lInit = lastLower.charAt(0).toString(); //""
+    var fInit = document.getElementById("firstN").value.charAt(0).toLowerCase(); //this pulls the first character from the user input and converts to lower case
+    var lInit = document.getElementById("lastN").value.charAt(0).toLowerCase(); //this pulls the first character from the user input and converts to lower case
     var newFirst = firstNames[(firstNames.indexOf(fInit)) + 1]; //using the initial, find the corresponding name from the list firstNames
     var newLast = lastNames[(lastNames.indexOf(lInit)) + 1]; //using the initial, find the corresponding name from the list lastNames
     var rando = Math.floor(Math.random() * (titles.length)); //pick a random number from 0 to length of list titles
     var title = titles[rando]; //assigns random title from list to var title
     var fullName = newFirst + " " + newLast + " " + title; //generate a string of the spoopy name
-    $(".result_list").append("<dd>" + fullName + "</dd>"); //append detailed list with newly generated name with JQuery
+    $(".result_list").append("<dd>" + fullName + "</dd>") //append detailed list with newly generated name with JQuery
     var listRando = Math.floor(Math.random() * (imageList.length)); //generate a random number to pick new header/footer bg
     var newBG = imageList[listRando]; //assigns that bg to a string
     $(".header-image").css("background-image", "url(" + newBG + ")"); //replace old bg with new bg url via JQuery and css
