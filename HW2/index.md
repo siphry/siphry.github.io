@@ -52,6 +52,8 @@ My original design was similar to the webpage I created for assignment 1, but wh
             <button onclick="clearList()">Clear list</button>
         <!--This image is replaced randomly via JQuery upon button click above-->    
         <div class="footer-image"></div>
+        <div class="space"></div>
+        <div class="gif"></div>
     </div>
 </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -60,7 +62,9 @@ My original design was similar to the webpage I created for assignment 1, but wh
 </html>
 ```   
 
-I kept the HTML for this assignment relatively simple, and I preferred to keep the Javascript separate from the HTML. Once again, I used [W3Schools](https://www.w3schools.com/jsref/jsref_obj_array.asp), as well as [this](https://medium.freecodecamp.org/creating-a-bare-bones-quote-generator-with-javascript-and-html-for-absolute-beginners-5264e1725f08) blog for inspiration and reference to create my name generator. I also checked stack overflow whenever I ran into issues, such as when I couldn't figure out how to replace the background image in the .css file via the .js file with JQuery.    
+I kept the HTML and design for this assignment relatively simple, and I preferred to keep the Javascript separate from the HTML. Once again, I used [W3Schools](https://www.w3schools.com/jsref/jsref_obj_array.asp), as well as [this](https://medium.freecodecamp.org/creating-a-bare-bones-quote-generator-with-javascript-and-html-for-absolute-beginners-5264e1725f08) blog for inspiration and reference to create my name generator. I also checked stack overflow whenever I ran into issues, such as when I couldn't figure out how to replace the background image in the .css file via the .js file with JQuery.
+
+Since the name generator is a relatively simple-looking list, I wanted to make the website colors and graphics interesting and in line with the theme, so orange and black was almost a requirement. I found the banner images online and set them to repeat and created the shapes via padding in the .css file. After I finished everything and merged my branhes, I found the dancing skeleton gifs and had to add them. I like the simple design, it's eye-catching without being too busy or jarring. I tried to use columns and put the skeletons on the bottom corners, but it just didn't look right and did not work on mobile so I switched to placing them in the container undernear the generator. 
 
 ```javascript
 var firstNames = ["a", "Craven", "b", "Ahru", "c", "Sybil", "d", "Dracen", "e", "Elfin", "f", "Jeff", "g", "Zion", "h", "Fane", "i", "Lunas", 
@@ -77,12 +81,8 @@ var imageList = ["../images/bg1.jpg", "../images/bg2.jpg", "../images/bg3.jpg"]
 
 //this function occurs when the user clicks the button in order to generate the SPOOPY name
 function getName() {
-    var first = document.getElementById("firstN").value; //this pulls the user input into the var first
-    var firstLower = first.toLowerCase(); //converts string to all lower case letters
-    var fInit = firstLower.charAt(0).toString(); //grabs the first char from the string and converts back to string
-    var last = document.getElementById("lastN").value; //repeat previous steps with second input form
-    var lastLower = last.toLowerCase(); //""
-    var lInit = lastLower.charAt(0).toString(); //""
+    var fInit = document.getElementById("firstN").value.charAt(0).toLowerCase(); //this pulls the first character from the user input and converts to lower case
+    var lInit = document.getElementById("lastN").value.charAt(0).toLowerCase(); //this pulls the first character from the user input and converts to lower case
     var newFirst = firstNames[(firstNames.indexOf(fInit)) + 1]; //using the initial, find the corresponding name from the list firstNames
     var newLast = lastNames[(lastNames.indexOf(lInit)) + 1]; //using the initial, find the corresponding name from the list lastNames
     var rando = Math.floor(Math.random() * (titles.length)); //pick a random number from 0 to length of list titles
@@ -107,11 +107,13 @@ function clearList() {
 }
 ```   
 
-I also tried to keep my Javascript relatively short and simple as well, however I do think that my `getName()` function could be cleaner and simpler, but I could not think of a better way to link the user inputted initials with my Halloween-themed names. I found the `lettersOnly()` function on [YouTube](https://www.youtube.com/watch?v=OpajusnOfYo), since I could not get any regex pattern matching to work with my text inputs. The functions `getName()` and `clearList()` both use JQuery to alter the HTML on the webpage -- `getName()` appends the generated names to an emtpy detailed list, while `clearList()` then clears all of those appened items from the list section divider.  
+I also tried to keep my Javascript relatively short and simple as well, however I do think that my `getName()` function could be cleaner and simpler, but I could not think of a better way to link the user inputted initials with my Halloween-themed names. The function reads in the value inputted by the user from the text boxes via the `.getElementById()` call to the input text boxes by their designated names, pulls the first char from the string, and converts it to lower case, which I use to search the array for it's corresponding "spoopy" name. A random number generator then selects the title from the titles list, and I combine all into a new string, which is added to the list via JQuery `append()`. I also use JQuery to replace the banner images with the `.css` call to replace the values of the designated element -- in this case, the background-image in the "header-image" and "footer-image" classes.
+
+I found the `lettersOnly()` function on [YouTube](https://www.youtube.com/watch?v=OpajusnOfYo), since I could not get any regex pattern matching to work with my text inputs. The functions `getName()` and `clearList()` both use JQuery to alter the HTML on the webpage -- `getName()` appends the generated names to an emtpy detailed list, while `clearList()` then clears all of those appened items from the list section divider by using the `.empty()` method from JQuery that deletes all the HTML within the designated section/division.  
 
 ### Step 5 [Test] & Step 6 [Turn it In]
 ![git log](https://siphry.github.io/HW2/images/gitlog.PNG)  
-Unfortunately I forgot to create a new branch to do everything on, probably due to the issues I ran into with I was working on two different branches for assignment 1. I did eventually create a branch named *surface* (later renamed to *hw2*), after finishing the basic javascript but before finishing my JQuery/css/bootstrap parts. Then, once I got the page working the way I liked, I merged *hw2* back to *master* and wrapped up the assignment/blog on the master branch. After doing some more work on the portfolio and talking with others, I have changed a few things since the merge so switched back to the *surface* branch until I am completely happy with the blog/website. 
+Unfortunately I forgot to create a new branch to do everything on, probably due to the issues I ran into with I was working on two different branches for assignment 1. I did eventually create a branch named *surface* (later renamed to *hw2*), after finishing the basic javascript but before finishing my JQuery/css/bootstrap parts. Then, once I got the page working the way I liked, I merged *hw2* back to *master* and wrapped up the assignment/blog on the master branch. After doing some more work on the portfolio and talking with others, I have changed a few things since the merge so switched back to the *surface* branch until I was completely happy with the blog/website. 
 
 ### Step 7 [Portfolio Content]
 ![the SPOOPY NAME GENERATOR](https://siphry.github.io/HW2/images/home_html.PNG)  
