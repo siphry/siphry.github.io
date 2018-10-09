@@ -3,4 +3,4 @@ HW3/Java
 
 #ignore all files except cs files
 HW3/C#/*
-HW3/C#/assignment3/*.cs
+!HW3/C#/assignment3/*.cs
