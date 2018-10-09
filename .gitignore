@@ -1,6 +1,6 @@
 #ignore HW3 java folder
-HW3/Java/
+HW3\Java\
 
 #do not ignore cs files
-HW3/C#/assignment3/*
-!HW3/C#/assignment3/*.cs
+HW3\C#\assignment3\*
+!HW3\C#\assignment3\*.cs
