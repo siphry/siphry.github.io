@@ -1,6 +1,6 @@
-#ignore java files
-HW3/Java
+#ignore Java files
+HW3\Java
 
-#ignore all files except cs files
-HW3/C#/*
-!HW3/C#/assignment3/*.cs
+#ignore files except .cs files
+HW3\C#\*
+!HW\C#\assignment3\*.cs
