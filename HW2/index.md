@@ -39,11 +39,13 @@ My original design was similar to the webpage I created for assignment 1, but wh
             <h1>the SPOOPY NAME GENERATOR</h1>
  
             <p>Please input your first and last name to find your SPOOPY name!</p>
-            <!--These two input types create single line text boxes for user input-->
-            <input type="text" id="firstN" value="First name" onkeyup="lettersOnly(this)">
-            <input type="text" id="lastN" value="Last name" onkeyup="lettersOnly(this)">
-            <!--This button calls the javascript function getName() upon click-->
-            <button onclick="getName()">Find your spoopy name!</button>
+            <form>
+                <!--These two input types create single line text boxes for user input-->
+                <input type="text" id="firstN" value="First name" onkeyup="lettersOnly(this)">
+                <input type="text" id="lastN" value="Last name" onkeyup="lettersOnly(this)">
+                <!--This button calls the javascript function getName() upon click-->
+                <button type="button" id="name">Find your spoopy name!</button>
+            </form>
             <!--An empty list for JQuery in the .js file to append with the generated names-->
             <dl id="result">
             <dt>Results display here:</dt>
@@ -71,7 +73,7 @@ var firstNames = ["a", "Craven", "b", "Ahru", "c", "Sybil", "d", "Dracen", "e", 
 "j", "Myst", "k", "Jahan", "l", "Shade", "m", "Hellis", "n", "Judis", "o", "Micah", "p", "Siffry", "q", "Solaire", "r", "Zibits", "s", "Beel", 
 "t", "Lozaim", "u", "Poe", "v", "Drael", "w", "Cole", "x", "Varrik", "y", "Zaylor", "z", "Kym"]
 var lastNames = ["a", "Rubyellus", "b", "Javas", "c", "Pythonos", "d", "Fortranus", "e", "Deth", "f", "Haskellum", "g", "Seaquillis", "h", 
-"Nekro", "i", "Moon", "j", "Drizzt", "k", "Ben-Mezd", "l", "Gruffen", "m", "Auros", "p", "Artorius", "q", "Aldrich", "r", "Ornstein", "s",
+"Nekro", "i", "Moon", "j", "Drizzt", "k", "Ben-Mezd", "l", "Gruffen", "m", "Auros", "n", "Skrull", "o", "Stain", "p", "Artorius", "q", "Aldrich", "r", "Ornstein", "s",
 "Bezel", "t", "Abyssl", "u", "Gael", "v", "Adella", "w", "Yaharl", "x", "Woolf", "y", "Quaim", "z", "Tryst"]
 var titles = ["the Crypt Destroyer", "the Soul Devourer", "the Shrieking Tomb", "the Blind Prescence", "the Silent Hunter", "the Blood Syphon", "the Black Rain", 
 "the Ghost Flayer", "the Weeping Spirit", "the Lost Child", "the Fallen", "the Normal", "the Bloodlust", "the Smile Stealer",
@@ -105,6 +107,11 @@ function lettersOnly(input){
 function clearList() {
     $(".result_list").empty();    
 }
+
+//Clicking button calls getName()
+$("#name").click(function(){
+    getName();
+});
 ```   
 
 I also tried to keep my Javascript relatively short and simple as well, however I do think that my `getName()` function could be cleaner and simpler, but I could not think of a better way to link the user inputted initials with my Halloween-themed names. The function reads in the value inputted by the user from the text boxes via the `.getElementById()` call to the input text boxes by their designated names, pulls the first char from the string, and converts it to lower case, which I use to search the array for it's corresponding "spoopy" name. A random number generator then selects the title from the titles list, and I combine all into a new string, which is added to the list via JQuery `append()`. I also use JQuery to replace the banner images with the `.css` call to replace the values of the designated element -- in this case, the background-image in the "header-image" and "footer-image" classes.

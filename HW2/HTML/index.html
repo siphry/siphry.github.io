@@ -14,14 +14,17 @@
             <h1>~THE SPOOPY NAME GENERATOR~</h1>
  
             <p>Please input your first and last name to find your SPOOPY name!</p>
-            <input type="text" id="firstN" value="First name" onkeyup="lettersOnly(this)">
-            <input type="text" id="lastN" value="Last name" onkeyup="lettersOnly(this)">
-            <button onclick="getName()">Find your spoopy name!</button>
+            <form>
+                <input type="text" id="firstN" value="First name" onkeyup="lettersOnly(this)">
+                <input type="text" id="lastN" value="Last name" onkeyup="lettersOnly(this)">
+                <button type="button" id="name">Find your spoopy name!</button>
+            </form>
             <dl id="result">
-            <dt>Results display here:</dt>
-               <div class="result_list"></div>
+                <dt>Results display here:</dt>
+                <div class="result_list"></div>
             </dl>
             <button onclick="clearList()">Clear list</button>
+           
         <div class="footer-image"></div>
         <div class="space"></div>
         <div class="gif"></div>
