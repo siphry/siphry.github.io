@@ -39,7 +39,9 @@ function lettersOnly(input) {
 
 //Clears the list
 function clearList() {
-    $(".result_list").empty();    
+    $(".result_list").empty();
+    $("#firstN").replaceWith("<input type=\"text\" id=\"firstN\" value=\"First name\" onkeyup=\"lettersOnly(this)\">");
+    $("#lastN").replaceWith("<input type=\"text\" id=\"firstN\" value=\"Last name\" onkeyup=\"lettersOnly(this)\">"); 
 }
 
 //Clicking button calls getName()
