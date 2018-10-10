@@ -1,5 +1,5 @@
 ﻿/*
- * Singly linked node class. 
+ * A singly linked node class. 
  */
 
 namespace assignment3

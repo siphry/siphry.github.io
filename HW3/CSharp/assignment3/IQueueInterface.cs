@@ -1,6 +1,5 @@
 ﻿/*
- * A FIFO queue interface. This ADT is suitable for a singly
- * linked queue
+ * Interface for a FIFO queue in a singly linked list
  */
 
 namespace assignment3
@@ -9,18 +8,18 @@ namespace assignment3
     {
 
         /*
-         * Add an element to the rear of the queue
+         * Adds an element to the rear of the queue
          * @return the element that was enqueued
          */
         T Enqueue(T element);
 
         /*
-         * Remove and return the front element.
+         * Removes and returns the front element.
          */
         T Dequeue();
 
         /*
-         * Test if the queue is empty
+         * Tests if the queue is empty
          * @return true if queue is empty: otherwise false
          */
         bool IsEmpty();
