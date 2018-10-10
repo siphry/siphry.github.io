@@ -12,7 +12,7 @@ namespace assignment3
             Rear = null;
         }
 
-        public T Push(T element)
+        public T Enqueue(T element)
         {
             if(element == null)
             {
@@ -32,7 +32,7 @@ namespace assignment3
             return element;
         }
 
-        public T Pop()
+        public T Dequeue()
         {
             T Temp = default(T);
             if(IsEmpty())

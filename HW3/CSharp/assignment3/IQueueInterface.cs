@@ -12,12 +12,12 @@ namespace assignment3
          * Add an element to the rear of the queue
          * @return the element that was enqueued
          */
-        T Push(T element);
+        T Enqueue(T element);
 
         /*
          * Remove and return the front element.
          */
-        T Pop();
+        T Dequeue();
 
         /*
          * Test if the queue is empty
