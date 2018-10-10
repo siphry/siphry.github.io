@@ -59,13 +59,8 @@ namespace assignment3
             int MaxLength = Output.Last.Value.Length;
             foreach (string S in Output)
             {
-                for(int i = 0; i < MaxLength - S.Length; ++i)
-                {
-                    Console.WriteLine(" ");
-                }
                 Console.WriteLine(S);
             }
-
         }
     }
 }
