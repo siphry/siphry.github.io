@@ -3,30 +3,32 @@ namespace assignment3
 {
     class LinkedQueue<T> : IQueueInterface<T>
     {
-        private Node<T> Front;
-        private Node<T> Rear;
+        private Node<T> front;
+        private Node<T> rear;
 
         public LinkedQueue()
         {
-            Front = null;
-            Rear = null;
+            front = null;
+            rear = null;
         }
 
         public T Enqueue(T element)
         {
-            if(element == null)
+            if (element == null)
             {
                 throw new System.NullReferenceException();
             }
 
-            if(IsEmpty())
+            if (IsEmpty())
             {
                 Node<T> Temp = new Node<T>(element, null);
-                Rear = Front = Temp;
-            } else {
+                rear = front = Temp;
+            }
+            else
+            {
                 Node<T> Temp = new Node<T>(element, null);
-                Rear.Next = Temp;
-                Rear = Temp;
+                rear.Next = Temp;
+                rear = Temp;
             }
 
             return element;
@@ -35,19 +37,20 @@ namespace assignment3
         public T Dequeue()
         {
             T Temp = default(T);
-            if(IsEmpty())
+            if (IsEmpty())
             {
                 throw new QueueUnderflowException("The queue was empty when pop was invoked.");
             }
-            else if (Front == Rear)
+            else if (front == rear)
             {
-                Temp = Front.Data;
-                Front = null;
-                Rear = null;
-            } else
+                Temp = front.Data;
+                front = null;
+                rear = null;
+            }
+            else
             {
-                Temp = Front.Data;
-                Front = Front.Next;
+                Temp = front.Data;
+                front = front.Next;
             }
 
             return Temp;
@@ -55,10 +58,11 @@ namespace assignment3
 
         public bool IsEmpty()
         {
-            if(Front == null && Rear == null)
+            if (front == null && rear == null)
             {
                 return true;
-            } else
+            }
+            else
             {
                 return false;
             }

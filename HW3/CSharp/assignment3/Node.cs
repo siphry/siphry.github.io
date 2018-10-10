@@ -14,9 +14,5 @@ namespace assignment3
             this.Data = data;
             this.Next = next;
         }
-
-        static void Main(string[] args)
-        {
-        }
     }
 }
