@@ -41,3 +41,8 @@ function lettersOnly(input) {
 function clearList() {
     $(".result_list").empty();    
 }
+
+//Clicking button calls getName()
+$("#name").click(function(){
+    getName();
+});
