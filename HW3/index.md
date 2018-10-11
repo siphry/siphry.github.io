@@ -3,7 +3,7 @@ This assignment was designed in order for us to get comfortable with writing in 
 
 ### Links
 [Home](https://siphry.github.io)  
-[Assignment Details](http://www.wou.edu/~morses/classes/cs46x/assignments/HW3.html)  
+[Assignment Details](http://www.wou.edu/~morses/classes/cs46x/assignments/HW3_1819.html)  
 [Code Repository](https://github.com/siphry/siphry.github.io/tree/master/HW3)  
 
 ### Step 1 & 2 [Setup]
@@ -102,5 +102,5 @@ While I wrote IQueueInterface, LinkedQueue, and Runner, I would google things I 
 My process for writing the Runner (Main) class was so much easier than I originally thought it would be. I googled how to write a "Main" class in C# and found it was fairly similar to Java except that it could not be called 'Main'. The only things I double checked with google was `StringBuilder` and how to include the LinkedList structure in my code (`using System.Collections.Generic;`), and Visual Studio prompted th catch error (`NotFiniteNumberException`) so I didn't even have to look that up since it automatically populated into my code. Originally I set maxLength to output.Last.value.Length, but that did not do the spacing correctly in the for loop so I removed the loop without realizing it removed the right justified spacing. I asked Nick about it and he explained `Count()` and `using System.Linq;` so I changed my code to that to include the proper spacing in the output. 
 
 ### Step 7 [Test]
-![cmdln](https://siphry.github.io/HW3/images/cmdln.png)
+![cmdln](https://siphry.github.io/HW3/images/cmdln.PNG)
 It works! I ran this after fixing all my errors and adding my comments, etc. I was really surprised by how simple it was to translate from Java to C#. I really like what I've seen so far of C# and look forward to learning more about it -- anyting is better than C++ for me!
