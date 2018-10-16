@@ -1,6 +1,6 @@
-﻿/*
- * A singly linked node class. 
- */
+﻿/// <summary>
+/// A singly linked node class. 
+/// </summary>
 
 namespace assignment3
 {

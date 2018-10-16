@@ -1,7 +1,7 @@
-﻿/*
- * A custom unchecked exception to represent situations where
- * an illegal operation was performed on an empty queue.
- */
+﻿/// <summary>
+/// A custom unchecked exception to represent situations where
+/// an illegal operation was performed on an empty queue.
+/// </summary>
 
 using System;
 

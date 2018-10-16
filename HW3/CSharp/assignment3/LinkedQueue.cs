@@ -1,6 +1,6 @@
-﻿/*
- * A singly linked queue utilizing the IQueueInterface
- */
+﻿/// <summary>
+/// A singly linked queue utilizing the IQueueInterface
+/// </summary>
 
 namespace assignment3
 {
@@ -17,11 +17,11 @@ namespace assignment3
             rear = null;
         }
 
-        /* 
-         * Adds and returns an element to the queue
-         * @param element The element to add
-         * @return the element that was enqueued
-         */
+        /// <summary>
+        /// Adds and returns an element to the queue
+        /// </summary>
+        /// <param name="element">The element to add</param>
+        /// <returns>the element that was enqueued</returns>
         public T Enqueue(T element)
         {
             if (element == null)
@@ -44,10 +44,10 @@ namespace assignment3
             return element;
         }
 
-        /* 
-        * Removes and returns the first element of the queue
-        * @return the element that was dequeued
-        */
+        /// <summary>
+        /// Removes and returns the first element of the queue
+        /// </summary>
+        /// <returns>the element that was dequeued</returns>
         public T Dequeue()
         {
             T temp = default(T);
@@ -70,9 +70,10 @@ namespace assignment3
             return temp;
         }
 
-        /* 
-        * Returns true if queue is empty: otherwise false
-        */
+        /// <summary>
+        /// Returns true if queue is empty: otherwise false
+        /// </summary>
+        /// <returns></returns>
         public bool IsEmpty()
         {
             if (front == null && rear == null)

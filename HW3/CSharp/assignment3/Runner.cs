@@ -7,10 +7,15 @@ namespace assignment3
 {
     class BinaryRepresentor
     {
-        /*
-        * Prints the binary representation of all the numbers from 1 up to and incuding n.
-        * Uses a FIFO queue
-        */
+        /// <summary>
+        /// Prints the binary representation of all the numbers from 1 up to and incuding n.
+        /// Uses a FIFO queue
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns>
+        /// LinkedList<String>
+        /// </returns>
+      
         static LinkedList<String> GenerateBinaryRepresentationList(int n)
         {
             
@@ -49,7 +54,10 @@ namespace assignment3
 
             return output;
         }
-        //driver fucntion to test above
+        /// <summary>
+        /// driver fucntion to test above
+        /// </summary>
+       
         public static void Main(string[] args)
         {
             int n = 10;
