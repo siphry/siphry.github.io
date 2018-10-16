@@ -4,7 +4,3 @@ HW3/Java/
 #ignore files except .cs files
 HW3/CSharp/assignment3/*
 !HW3/CSharp/assignment3/*.cs
-
-#ignore HW4 extra files except .cs files
-HW4/
-!HW4/assignment4/*.cs
