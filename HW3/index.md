@@ -16,9 +16,9 @@ After Visual Studio IDE was finished installing, I started a new console app pro
 I started translating the Java code to C# in the order suggested by the assignment --> Node.cs, IQueueInterface.cs, QueueUnderflowException.cs, LinkedQueue.cs, and Runner.cs  
 
 ```csharp
-/*
- * A singly linked node class. 
- */
+/// <summary>
+/// A singly linked node class. 
+/// </summary>
 
 namespace assignment3
 {
@@ -39,30 +39,37 @@ namespace assignment3
 Node.cs was the most simple one to translate -- all I had to do basically was change the naming conventions since Visual Studio IDE set up the empty class with the namespace, etc already there. Public fields in C# use UpperCamelCase, so I changed the field names from lower case to upper case.  
 
 ```csharp
-/*
- * Interface for a FIFO queue in a singly linked list
- */
+/// <summary>
+/// Interface for a FIFO queue in a singly linked list
+/// </summary>
 
 namespace assignment3
 {
     public interface IQueueInterface<T>
     {
 
-        /*
-         * Adds an element to the rear of the queue
-         * @return the element that was enqueued
-         */
+        /// <summary>
+        /// Adds an element to the rear of the queue
+        /// @return the element that was enqueued
+        /// </summary>
+
         T Enqueue(T element);
 
-        /*
-         * Removes and returns the front element.
-         */
+        /// <summary>
+        /// Removes and returns the front element.
+        /// </summary>
+        /// <returns>
+        /// The front element
+        /// </returns>
         T Dequeue();
 
-        /*
-         * Tests if the queue is empty
-         * @return true if queue is empty: otherwise false
-         */
+
+        /// <summary>
+        /// Tests if the queue is empty
+        /// </summary>
+        /// <returns>
+        /// return true if queue is empty: otherwise false
+        /// </returns>
         bool IsEmpty();
 
     }
@@ -71,10 +78,10 @@ namespace assignment3
 IQueueInterface was another simple translation -- I looked up the C# Queue data structure online and decided to rename push and pop to Enqueue and Dequeue. Beyond that the interface is basically the same syntax with different naming conventions (methods in UpperCamelCase), and the interface must be start with the letter "I".
 
 ```csharp
-/*
- * A custom unchecked exception to represent situations where
- * an illegal operation was performed on an empty queue.
- */
+/// <summary>
+/// A custom unchecked exception to represent situations where
+/// an illegal operation was performed on an empty queue.
+/// </summary>
 
 using System;
 
