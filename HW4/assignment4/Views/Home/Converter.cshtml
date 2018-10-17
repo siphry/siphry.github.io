@@ -10,20 +10,37 @@
             <div class="col-sm-6">
                 <h4><b>Miles</b></h4>
                 <p>
-                    <input type="number" name="miles" min="1">  
-                </p>      
+                    <input type="number" id="miles" min="1">
+                </p>
             </div>
             <div class="col-sm-6">
                 <h3>Select a unit</h3>
                 <hr>
                 <form>
-                    <input type="radio" name="metric" value="millimeters" checked> Millimeters<br>
-                    <input type="radio" name="metric" value="centimeters"> Centimeters<br>
-                    <input type="radio" name="metric" value="meters"> Meters<br>
-                    <input type="radio" name="metric" value="kilometers"> Kilometers<br>
+                    <input type="radio" name="metric" id="millimeters" checked> Millimeters<br>
+                    <input type="radio" name="metric" id="centimeters"> Centimeters<br>
+                    <input type="radio" name="metric" id="meters"> Meters<br>
+                    <input type="radio" name="metric" id="kilometers"> Kilometers<br>
                 </form>
             </div>
         </div>
+        <br><br>
+        <div align="center"><p><a class="btn btn-primary" onclick="convert()">Convert</a></p></div>
+        <br><br>
+        <p id="result"></p>
     </div>
 </div>
+
+<script>
+    function convert() {
+        var val, result;
+        val = document.getElementById("miles").value;
+
+        if (document.getElementById("millimeters").checked == true) {
+            result = val * 1609344;
+            document.getElementById("result").innerHTML = result;
+        }
+
+    }
+</script>
 
