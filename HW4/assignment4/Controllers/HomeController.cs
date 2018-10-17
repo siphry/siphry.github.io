@@ -27,9 +27,50 @@ namespace assignment4.Controllers
             return View();
         }
 
+        //Controller Action Method
+        [HttpGet]
         public ActionResult Converter()
         {
-            ViewBag.Message = "Converts miles to metrics.";
+            //Get query strings
+            string str_miles = Request.QueryString["miles"];
+            string metric = Request.QueryString["units"];
+
+            //math goes here
+            if(str_miles != null)
+            {
+                double result = 0;
+                double miles = Convert.ToDouble(str_miles);
+                if (metric == "millimeters")
+                {
+                    result = miles * 1609344;
+                }
+                if (metric == "centimeters")
+                {
+                    result = miles * 160934.4;
+                }
+                if (metric == "meters")
+                {
+                    result = miles * 1609.344;
+                }
+                if (metric == "kilometers")
+                {
+                    result = miles * 1.609344;
+                }
+
+                //message goes here
+                string message = miles + " miles is equal to " + Convert.ToString(result) + " " + metric;
+
+                //model/viewbag
+                ViewBag.message = message;
+            }
+            
+            
+            return View();
+        }
+
+        public ActionResult Create()
+        {
+            ViewBag.Message = "Combines colors from HEX";
 
             return View();
         }

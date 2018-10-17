@@ -1,33 +1,36 @@
 ﻿
 @{
-    ViewBag.Title = "Converter";
+    ViewBag.Title = "Miles to Metric Converter";
 }
 
 <h2>Convert Miles to Metric</h2>
 <div>
     <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
-                <h4><b>Miles</b></h4>
-                <p>
-                    <input type="number" id="miles" min="1">
-                </p>
+        <form method="get" form action="/Home/Converter">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4><b>Miles</b></h4>
+                    <p>
+                        <input type="number" name="miles" min="1" step=".01">
+                    </p>
+                </div>
+                <div class="col-sm-6">
+                    <h3>Select a unit</h3>
+                    <hr>
+                    <input type="radio" name="units" value="millimeters" checked> Millimeters<br>
+                    <input type="radio" name="units" value="centimeters"> Centimeters<br>
+                    <input type="radio" name="units" value="meters"> Meters<br>
+                    <input type="radio" name="units" value="kilometers"> Kilometers<br>
+                </div>
             </div>
-            <div class="col-sm-6">
-                <h3>Select a unit</h3>
-                <hr>
-                <form>
-                    <input type="radio" name="metric" id="millimeters" checked> Millimeters<br>
-                    <input type="radio" name="metric" id="centimeters"> Centimeters<br>
-                    <input type="radio" name="metric" id="meters"> Meters<br>
-                    <input type="radio" name="metric" id="kilometers"> Kilometers<br>
-                </form>
-            </div>
-        </div>
-        <br><br>
-        <div align="center"><p><a class="btn btn-primary" onclick="convert()">Convert</a></p></div>
-        <br><br>
-        <p id="result"></p>
+            <br><br>
+            <div align="center"><p><input class="btn btn-primary" type="submit" value="Convert" /></p></div>
+            <br><br>
+            <p id="result"></p>
+        </form>
     </div>
 </div>
-
+@if (ViewBag.message != null)
+{
+<h4><b><font color="#8b0000">@ViewBag.message;</font></b></h4>
+}
