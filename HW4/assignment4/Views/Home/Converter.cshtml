@@ -11,7 +11,7 @@
                 <div class="col-sm-6">
                     <h4><b>Miles</b></h4>
                     <p>
-                        <input type="number" name="miles" min="1" step=".01">
+                        <input type="number" name="miles" min="1" step=".01" required>
                     </p>
                 </div>
                 <div class="col-sm-6">
@@ -30,7 +30,7 @@
         </form>
     </div>
 </div>
-@if (ViewBag.message != null)
+@if (ViewBag.conversion != null)
 {
-<h4><b><font color="#8b0000">@ViewBag.message;</font></b></h4>
+<h4><b><font color="#8b0000">@ViewBag.conversion</font></b></h4>
 }

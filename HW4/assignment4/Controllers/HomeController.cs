@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -32,39 +33,42 @@ namespace assignment4.Controllers
         public ActionResult Converter()
         {
             //Get query strings
-            string str_miles = Request.QueryString["miles"];
+            string strMiles = Request.QueryString["miles"];
             string metric = Request.QueryString["units"];
 
             //math goes here
-            if(str_miles != null)
+            if(strMiles != null)
             {
                 double result = 0;
-                double miles = Convert.ToDouble(str_miles);
-                if (metric == "millimeters")
+                double miles = Convert.ToDouble(strMiles);
+
+                switch(metric)
                 {
-                    result = miles * 1609344;
+                    case "millimeters":
+                        result = miles * 1609344;
+                        break;
+                    case "centimeters":
+                        result = miles * 160934.4;
+                        break;
+                    case "meters":
+                        result = miles * 1609.344;
+                        break;
+                    case "kilometers":
+                        result = miles * 1.609344;
+                        break;
+                    default:
+                        break;
                 }
-                if (metric == "centimeters")
-                {
-                    result = miles * 160934.4;
-                }
-                if (metric == "meters")
-                {
-                    result = miles * 1609.344;
-                }
-                if (metric == "kilometers")
-                {
-                    result = miles * 1.609344;
-                }
+
+                //Debug.WriteLine(result);
 
                 //message goes here
-                string message = miles + " miles is equal to " + Convert.ToString(result) + " " + metric;
+                string conversion = miles + " miles is equal to " + Convert.ToString(result) + " " + metric;
 
                 //model/viewbag
-                ViewBag.message = message;
+                ViewBag.conversion = conversion;
             }
-            
-            
+
             return View();
         }
 
