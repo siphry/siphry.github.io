@@ -31,27 +31,3 @@
     </div>
 </div>
 
-<script>
-    function convert() {
-        var val, result;
-        val = document.getElementById("miles").value;
-
-        if (document.getElementById("millimeters").checked == true) {
-            result = val * 1609344;
-            document.getElementById("result").innerHTML = "<h4 style='color:SlateBlue;'><b>" + val + " miles is equal to " + result + " millimeters.</b></h4>"
-        }
-        if (document.getElementById("centimeters").checked == true) {
-            result = val * 160934.4;
-            document.getElementById("result").innerHTML = "<h4 style='color:SlateBlue;'><b>" + val + " miles is equal to " + result + " centimeters.</b></h4>"
-        }
-        if (document.getElementById("meters").checked == true) {
-            result = val * 1609.344;
-            document.getElementById("result").innerHTML = "<h4 style='color:SlateBlue;'><b>" + val + " miles is equal to " + result + " meters.</b></h4>"
-        }
-        if (document.getElementById("kilometers").checked == true) {
-            result = val * 1.609344;
-            document.getElementById("result").innerHTML = "<h4 style='color:SlateBlue;'><b>" + val + " miles is equal to " + result + " kilometers.</b></h4>"
-        }
-    }
-</script>
-
