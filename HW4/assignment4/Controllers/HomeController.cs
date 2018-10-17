@@ -26,5 +26,12 @@ namespace assignment4.Controllers
 
             return View();
         }
+
+        public ActionResult Converter()
+        {
+            ViewBag.Message = "Converts miles to metrics.";
+
+            return View();
+        }
     }
 }
