@@ -4,8 +4,10 @@
 
 <div class="jumbotron">
     <h1>CS 460 Homework 4</h1>
-    <p class="lead">This assignment is designed for students to become familiar and comfortable with
-    ASP.NET MVC 5 application programming through simple forms and server-side logic.</p>
+    <p class="lead">
+        This assignment is designed for students to become familiar and comfortable with
+        ASP.NET MVC 5 application programming through simple forms and server-side logic.
+    </p>
     <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
 </div>
 
@@ -13,13 +15,15 @@
     <div class="col-md-4">
         <h2>Mile to Metric Converter</h2>
         <p>
-           Want to know how many millimeters are in 26.2 miles? 
+           Want to know how many millimeters are in 26.2 miles? This calculator is for you. Uses query strings to send 
+            from data to the server, which performs the calculation and returns the answer in the requested page.
         </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <p><a class="btn btn-primary" href="@Url.Action("Converter", "Home")">Try it out &raquo;</a></p>
     </div>
     <div class="col-md-4">
         <h2>Color Chooser</h2>
-        <p> </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <p>Typical online color choosers are way too useful. We wanted something fun and completely useless. This form POST's
+        the data to the server.</p>
+        <p><a class="btn btn-primary" href=@Url.Action("Create", "Color")>Check it out &raquo;</a></p>
     </div>
 </div>
