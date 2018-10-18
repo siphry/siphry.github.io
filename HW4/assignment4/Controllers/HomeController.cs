@@ -27,7 +27,10 @@ namespace assignment4.Controllers
 
             return View();
         }
-
+        /// <summary>
+        /// Converts user input miles to user selected metric value
+        /// </summary>
+        /// <returns>The metric value of whatever miles</returns>
         //Controller Action Method
         [HttpGet]
         public ActionResult Converter()
