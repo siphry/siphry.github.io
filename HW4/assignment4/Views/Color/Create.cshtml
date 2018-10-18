@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create a New Color</h2>
+<p>Please enter colors in HTML hexadecimal format: #AABBCC</p>
+<br />
+<p><h5><b>First Color</b></h5></p>
+@Html.TextBox("firstColor", null, htmlAttributes: new { @class = "form-control", placeholder = "#ffffff", pattern = "#[0-9-Fa-f]{6}", required = "required" })
+<p><h5><b>Second Color</b></h5></p>
+@Html.TextBox("secondColor", null, htmlAttributes: new { @class = "form-control", placeholder = "#ffffff", pattern = "#[0-9-Fa-f]{6}", required = "required" })
+<br />
+<button class="btn btn-primary" type="submit">Mix Colors</button>
+
