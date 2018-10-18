@@ -18,6 +18,12 @@ namespace assignment4.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Create(string firstColor, string secondColor)
+        {
+            return View();
+        }
     }
 
 }
