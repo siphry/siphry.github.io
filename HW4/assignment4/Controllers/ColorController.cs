@@ -15,11 +15,21 @@ namespace assignment4.Controllers
             return View();
         }
 
+        /// <summary>
+        /// GET method for user input of HEX color values
+        /// </summary>
+        /// <returns>The view for color page results</returns>
         public ActionResult Create()
         {
             return View();
         }
 
+        /// <summary>
+        /// POST method to update the color create page to show color results
+        /// </summary>
+        /// <param name="firstColor">The HEX value for the first user input</param>
+        /// <param name="secondColor">The HEX value for the second user input</param>
+        /// <returns>The view for the color create page update</returns>
         [HttpPost]
         public ActionResult Create(string firstColor, string secondColor)
         {
@@ -63,9 +73,12 @@ namespace assignment4.Controllers
                 System.Diagnostics.Debug.WriteLine("Second hex: " + secondHex);
                 System.Diagnostics.Debug.WriteLine("New hex: " + newHex);
 
+                //add values to ViewBag to change the page and show the colors
                 ViewBag.firstC = "width: 80px; height: 80px; border: 1px solid #000000; background: " + firstHex + "; ";
                 ViewBag.secondC = "width: 80px; height: 80px; border: 1px solid #000000; background: " + secondHex + "; ";
                 ViewBag.newC = "width: 80px; height: 80px; border: 1px solid #000000; background: " + newHex + "; ";
+                ViewBag.plus = "+";
+                ViewBag.equal = "=";
             }
 
             return View();
