@@ -128,6 +128,13 @@ Since I had already written all of this in Javascript the night before, re-doing
 
 Nothing more satisfying than working through something with your classmates and getting it to work exactly how it's supposed to!
 
+After reviewing the grading rubric, I realized I needed to add something into the converter in case the user wrote something manually into the url query string. I added some simple checking that will prints some pleasant messages to the converter page if the user changes the value of 'miles' or 'units' in the url query string.
+
+![miles_warning](https://siphry.github.io/HW4/images/miles_warning.PNG)  
+
+![units_warning](https://siphry.github.io/HW4/images/units_warning.PNG)  
+
+
 ### Step 4 [Content/Coding]
 
 ```html
