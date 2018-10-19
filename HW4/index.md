@@ -49,14 +49,15 @@ First I created a new project in Visual Studio named assignment4, and used [this
 <!--ViewBag section for page update with results-->
 @if (ViewBag.conversion != null)
 {
-<h4><b><font color="#8b0000">@ViewBag.conversion</font></b></h4>
+    <h4><b><font color="#8b0000">@ViewBag.conversion</font></b></h4>
+    <h4><b><font color="#8b0000">@ViewBag.message</font></b></h4>
 }
 ```
 
 I started with re-creating the Miles to Metric page in html, which was simple enough to reproduce. Except it took me a while to realize that "number" inputs included the increment/decrement arrows and tried to find a bootstrap spinner or something. At first I gave each radio button a different name value which broke the selection (all would be checked at the same time), and forgot about adding decimal capabilies to the number input until I started testing the math in the HomeController view. Unfortunately, I apparently forgot what the purpose of the assignment was and did the conversion part in Javascript and wasted some time with that before reviewing the requirements and scrapping all that code. Thankfully, Wednesday's lecture covered all my questions I had surrounding how to make this work so I took my notes from that lecture and applied them to this assignment.
 
 ```csharp
-/// <summary>
+        /// <summary>
         /// Converts user input miles to user selected metric value
         /// </summary>
         /// <returns>The metric value of whatever miles</returns>
@@ -68,39 +69,54 @@ I started with re-creating the Miles to Metric page in html, which was simple en
             string strMiles = Request.QueryString["miles"];
             string metric = Request.QueryString["units"];
 
-            //math goes here
+            //only does this/posts messages to webpage if user has inputted a value into miles
             if(strMiles != null)
             {
-                double result = 0;
-                double miles = Convert.ToDouble(strMiles);
-
-                switch(metric)
+                //check to make sure user hasn't inputed a NaN in the query string URL
+                char firstChar = strMiles[0];
+                bool isNum = Char.IsDigit(firstChar);
+       
+                if (!isNum)
                 {
-                    case "millimeters":
-                        result = miles * 1609344;
-                        break;
-                    case "centimeters":
-                        result = miles * 160934.4;
-                        break;
-                    case "meters":
-                        result = miles * 1609.344;
-                        break;
-                    case "kilometers":
-                        result = miles * 1.609344;
-                        break;
-                    default:
-                        break;
+                    ViewBag.message = "Please do not input non-numbers in the query string.";
                 }
+                else
+                {
+                    //math goes here
+                    double result = 0;
+                    double miles = Convert.ToDouble(strMiles);
+                    string warning = "Please do not change the metric value in the query string.";
 
-                //Debug.WriteLine(result);
+                    switch (metric)
+                    {
+                        case "millimeters":
+                            result = miles * 1609344;
+                            break;
+                        case "centimeters":
+                            result = miles * 160934.4;
+                            break;
+                        case "meters":
+                            result = miles * 1609.344;
+                            break;
+                        case "kilometers":
+                            result = miles * 1.609344;
+                            break;
+                        default:
+                            ViewBag.message = warning;
+                            break;
+                    }
 
-                //message goes here
-                string conversion = miles + " miles is equal to " + Convert.ToString(result) + " " + metric;
+                    //if user hasn't inputted something else into the units query string
+                    if(ViewBag.message != warning)
+                    { 
+                        //message goes here
+                        string conversion = miles + " miles is equal to " + Convert.ToString(result) + " " + metric;
 
-                //model/viewbag
-                ViewBag.conversion = conversion;
+                        //viewbag statement
+                        ViewBag.conversion = conversion;
+                    }
+                }
             }
-
             return View();
         }
 ```
@@ -148,7 +164,7 @@ Nothing more satisfying than working through something with your classmates and 
 Re-creating this page in HTML was simple enough, but figuring out exactly how to use the Razor HTML helpers took me a moment to figure out, so I went to Alex for help with the pattern and required parts especially. I also got help from Stuart for how to use the ViewBag with the HTML -- originally I was thinking about making the color squals with HTML and CSS, and figuring out how the ViewBag might alter the CSS background-color etc...I didn't realize you could do that right in the HTML.
 
 ```csharp
-      /// <summary>
+        /// <summary>
         /// GET method for user input of HEX color values
         /// </summary>
         /// <returns>The view for color page results</returns>
