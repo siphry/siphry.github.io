@@ -33,19 +33,11 @@ namespace assignment4.Controllers
         [HttpPost]
         public ActionResult Create(string firstColor, string secondColor)
         {
-            //debug to check that input values works
-            System.Diagnostics.Debug.WriteLine("First Color: " + firstColor);
-            System.Diagnostics.Debug.WriteLine("Second Color: " + secondColor);
-
             if(firstColor != null && secondColor != null)
             {
                 //translates inputed HEX values to color object
                 Color colorFirst = ColorTranslator.FromHtml(firstColor);
                 Color colorSecond = ColorTranslator.FromHtml(secondColor);
-
-                //debug to check that translator works
-                System.Diagnostics.Debug.WriteLine("First Color: " + Convert.ToString(colorFirst));
-                System.Diagnostics.Debug.WriteLine("Second Color: " + Convert.ToString(colorSecond));
 
                 //add the argb values together to form new color
                 int newA = colorFirst.A + colorSecond.A;
@@ -60,18 +52,10 @@ namespace assignment4.Controllers
                 //make new color obj from the above values
                 Color newColor = Color.FromArgb(newA, newR, newG, newB);
 
-                //debug check to see if these values are correct rgb vals
-                System.Diagnostics.Debug.WriteLine("New color: " + Convert.ToString(newColor));
-
                 //convert color obj back to HTML hex values
                 string firstHex = ColorTranslator.ToHtml(Color.FromArgb(colorFirst.A, colorFirst.R, colorFirst.G, colorFirst.B));
                 string secondHex = ColorTranslator.ToHtml(Color.FromArgb(colorSecond.A, colorSecond.R, colorSecond.G, colorSecond.B));
                 string newHex = ColorTranslator.ToHtml(Color.FromArgb(newA, newR, newG, newB));
-
-                //debug check to see if these values correctly converted
-                System.Diagnostics.Debug.WriteLine("First hex: " + firstHex);
-                System.Diagnostics.Debug.WriteLine("Second hex: " + secondHex);
-                System.Diagnostics.Debug.WriteLine("New hex: " + newHex);
 
                 //add values to ViewBag to change the page and show the colors
                 ViewBag.firstC = "width: 80px; height: 80px; border: 1px solid #000000; background: " + firstHex + "; ";
