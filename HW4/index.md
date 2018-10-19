@@ -110,6 +110,8 @@ Since I had already written all of this in Javascript the night before, re-doing
 
 ![converter_result](https://siphry.github.io/HW4/images/converter_result.PNG)
 
+Nothing more satisfying than working through something with your classmates and getting it to work exactly how it's supposed to!
+
 ### Step 4 [Content/Coding]
 
 ```html
@@ -205,6 +207,8 @@ For this section, I got help from Alex to get started but once I got rolling eve
 ![create](https://siphry.github.io/HW4/images/create.PNG)
 
 ![create_result](https://siphry.github.io/HW4/images/create_result.PNG)
+
+It works! That was so satisfying to see the colors show up on the screen, and it's actually a bit fun to mix the colors here. 
 
 
 #### Notes and Resources
