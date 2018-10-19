@@ -7,7 +7,7 @@ This assignment was designed in order for us to get comfortable with ASP.NET MVC
 [Code Repository](https://github.com/siphry/siphry.github.io/tree/master/HW4)  
 
 ### Step 1 & 2 [Setup & Planning]
-First I created a new project in Visual Studio named assignment4, and used [this](https://gist.github.com/indyfromoz/4109296) example as the basis for my .gitignore for my HW4 folder. Then, I started working on the `index.cshtml` and `layout` to get familiar with the project and the syntax before starting a feature branch called `converter` for the Miles to Metric section of the webpage. I thought I finished the index before switching, but I guess I did not so I ended up finishing the "Home" landing page and navbar in the `converter` feature branch. 
+First I created a new project in Visual Studio named assignment4, and used [this](https://gist.github.com/indyfromoz/4109296) example as the basis for my .gitignore for my HW4 folder. Then, I started working on the index.cshtml and layout to get familiar with the project and the syntax before starting a feature branch called converter for the Miles to Metric section of the webpage. I thought I finished the index before switching, but I guess I did not so I ended up finishing the "Home" landing page and navbar in the converter feature branch. 
 
 ![home](https://siphry.github.io/HW4/images/home.PNG)
 
@@ -53,7 +53,7 @@ First I created a new project in Visual Studio named assignment4, and used [this
 }
 ```
 
-I started with re-creating the Miles to Metric page in html, which was simple enough to reproduce. Except it took me a while to realize that "number" inputs included the increment/decrement arrows and tried to find a bootstrap spinner or something. At first I gave each radio button a different name value which broke the selection (all would be checked at the same time), and forgot about adding decimal capabilies to the number input until I started testing the math in the `HomeController` view. Unfortunately, I apparently forgot what the purpose of the assignment was and did the conversion part in Javascript and wasted some time with that before reviewing the requirements and scrapping all that code. Thankfully, Wednesday's lecture covered all my questions I had surrounding how to make this work so I took my notes from that lecture and applied them to this assignment.
+I started with re-creating the Miles to Metric page in html, which was simple enough to reproduce. Except it took me a while to realize that "number" inputs included the increment/decrement arrows and tried to find a bootstrap spinner or something. At first I gave each radio button a different name value which broke the selection (all would be checked at the same time), and forgot about adding decimal capabilies to the number input until I started testing the math in the HomeController view. Unfortunately, I apparently forgot what the purpose of the assignment was and did the conversion part in Javascript and wasted some time with that before reviewing the requirements and scrapping all that code. Thankfully, Wednesday's lecture covered all my questions I had surrounding how to make this work so I took my notes from that lecture and applied them to this assignment.
 
 ```csharp
 /// <summary>
