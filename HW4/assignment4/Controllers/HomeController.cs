@@ -14,19 +14,6 @@ namespace assignment4.Controllers
             return View();
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
         /// <summary>
         /// Converts user input miles to user selected metric value
         /// </summary>
@@ -71,13 +58,6 @@ namespace assignment4.Controllers
                 //model/viewbag
                 ViewBag.conversion = conversion;
             }
-
-            return View();
-        }
-
-        public ActionResult Create()
-        {
-            ViewBag.Message = "Combines colors from HEX";
 
             return View();
         }
