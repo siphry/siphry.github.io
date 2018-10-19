@@ -30,7 +30,8 @@
         </form>
     </div>
 </div>
-@if (ViewBag.conversion != null)
+@if (ViewBag.conversion != null || ViewBag.message != null)
 {
-<h4><b><font color="#8b0000">@ViewBag.conversion</font></b></h4>
+    <h4><b><font color="#8b0000">@ViewBag.conversion</font></b></h4>
+    <h4><b><font color="#8b0000">@ViewBag.message</font></b></h4>
 }

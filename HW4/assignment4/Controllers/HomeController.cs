@@ -29,34 +29,47 @@ namespace assignment4.Controllers
             //math goes here
             if(strMiles != null)
             {
-                double result = 0;
-                double miles = Convert.ToDouble(strMiles);
+                char firstChar = strMiles[0];
+                bool isNum = Char.IsDigit(firstChar);
 
-                switch(metric)
+                if (!isNum)
                 {
-                    case "millimeters":
-                        result = miles * 1609344;
-                        break;
-                    case "centimeters":
-                        result = miles * 160934.4;
-                        break;
-                    case "meters":
-                        result = miles * 1609.344;
-                        break;
-                    case "kilometers":
-                        result = miles * 1.609344;
-                        break;
-                    default:
-                        break;
+                    ViewBag.message = "Please do not input non-numbers in the query string.";
                 }
+                else
+                {
+                    double result = 0;
+                    double miles = Convert.ToDouble(strMiles);
+                    string warning = "Please do not change the metric value in the query string.";
 
-                //Debug.WriteLine(result);
+                    switch (metric)
+                    {
+                        case "millimeters":
+                            result = miles * 1609344;
+                            break;
+                        case "centimeters":
+                            result = miles * 160934.4;
+                            break;
+                        case "meters":
+                            result = miles * 1609.344;
+                            break;
+                        case "kilometers":
+                            result = miles * 1.609344;
+                            break;
+                        default:
+                            ViewBag.message = warning;
+                            break;
+                    }
 
-                //message goes here
-                string conversion = miles + " miles is equal to " + Convert.ToString(result) + " " + metric;
+                    if(ViewBag.message != warning)
+                    { 
+                        //message goes here
+                        string conversion = miles + " miles is equal to " + Convert.ToString(result) + " " + metric;
 
-                //model/viewbag
-                ViewBag.conversion = conversion;
+                        //model/viewbag
+                        ViewBag.conversion = conversion;
+                    }
+                }
             }
 
             return View();
