@@ -1,7 +1,54 @@
-﻿
+﻿@model assignment5.Models.Request
 @{
     ViewBag.Title = "Maintanence";
 }
-
-<h2>Maintanence</h2>
-
+@using (Html.BeginForm())
+{
+    <h1><font color="white">Silent Hills Apartments</font></h1>
+    <h3><font color="white">Maintanence Request Form</font></h3>
+    <hr />
+    <br /><br />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => Model.FirstName, "First name:", htmlAttributes: new { @class = "control-label col-md-2", style = "color:#ffffff" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => Model.LastName, "Last name:", htmlAttributes: new { @class = "control-label col-md-2", style = "color:#ffffff" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => Model.PhoneNum, "Phone number:", htmlAttributes: new { @class = "control-label col-md-2", style = "color:#ffffff" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.PhoneNum, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.PhoneNum, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => Model.AptName, "Apartment Name:", htmlAttributes: new { @class = "control-label col-md-2", style = "color:#ffffff" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.AptName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.AptName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => Model.UnitNum, "Unit number:", htmlAttributes: new { @class = "control-label col-md-2", style = "color:#ffffff" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.UnitNum, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.UnitNum, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => Model.Message, "Message:", htmlAttributes: new { @class = "control-label col-md-2", style = "color:#ffffff" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.Message, new { htmlAttributes = new { @class = "form-control", @value = "Explanation of request, maintanence required, or complaint. Please be specific." } })
+            @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+        </div>
+    </div>
+}

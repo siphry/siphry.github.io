@@ -1,4 +1,5 @@
-﻿using System;
+﻿using assignment5.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,21 +14,15 @@ namespace assignment5.Controllers
             return View();
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-
+        //GET-POST-Redirect to GET
+        [HttpGet]
         public ActionResult Maintanence()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Maintanence(Request request)
         {
             return View();
         }
