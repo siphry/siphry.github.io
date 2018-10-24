@@ -36,7 +36,7 @@
 
     @Html.LabelFor(model => Model.Message, "Message:", htmlAttributes: new { style = "color:#ffffff" })
 
-    @Html.TextAreaFor(model => model.Message, new { @class = "form-control", placeholder = "Explanation of request, maintanence required, or complaint. Please be specific." })
+    @Html.TextAreaFor(model => model.Message, new { @class = "form-control", rows = 10, cols = 40, placeholder = "Explanation of request, maintanence required, or complaint. Please be specific." })
     @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
 
     <br />

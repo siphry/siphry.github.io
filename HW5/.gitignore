@@ -10,8 +10,6 @@
 *.cache
 *.suo
 *.vs
-*.mdf
-*.ldf
 # Include dlls if they’re in the NuGet packages directory
 !/packages/*/lib/*.dll
 !/packages/*/lib/*/*.dll
@@ -28,8 +26,9 @@ _UpgradeReport_Files/
 bin/
 obj/
 TestResults/
-App_Data
-App_Start
+App_Data/*.mdf
+App_Data/*.ldf
+!App_Data/*.sql
 ###################
 # Web publish log #
 ###################
