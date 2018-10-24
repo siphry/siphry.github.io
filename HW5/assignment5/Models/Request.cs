@@ -8,6 +8,8 @@ namespace assignment5.Models
 {
     public class Request
     {
+        [Key]
+        public int ID { get; set; }
         [Required]
         public string FirstName { get; set; }
         [Required]
@@ -20,7 +22,7 @@ namespace assignment5.Models
         [Required]
         public int UnitNum { get; set; }
         [Required]
-        public string Message { get; set; }
+        public string Comments { get; set; }
         [Required]
         public bool Permission { get; set; }
 
