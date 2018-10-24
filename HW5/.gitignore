@@ -51,6 +51,8 @@ App_Data/*.ldf
 *.rar
 *.tar
 *.zip
+*.mdf
+*.ldf
 ######################
 # Logs and databases #
 ######################
