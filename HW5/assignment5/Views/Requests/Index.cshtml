@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Index</h2>
@@ -32,6 +33,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Permission)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubmissionTime)
+        </th>
         <th></th>
     </tr>
 
@@ -59,9 +63,7 @@
             @Html.DisplayFor(modelItem => item.Permission)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.DisplayFor(modelItem => item.SubmissionTime)
         </td>
     </tr>
 }

@@ -1,83 +1,56 @@
 ﻿@model assignment5.Models.Request
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Make a Request";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Request</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    <h1><font color="white">Silent Hills Apartments</font></h1>
+    <h3><font color="white">Maintanence Request Form</font></h3>
+    <hr />
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.PhoneNum, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PhoneNum, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PhoneNum, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.LabelFor(model => Model.FirstName, "First name:", htmlAttributes: new { style = "color:#ffffff" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.AptName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.AptName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.AptName, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.UnitNum, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UnitNum, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.UnitNum, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    @Html.LabelFor(model => Model.LastName, "Last name:", htmlAttributes: new { style = "color:#ffffff" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Comments, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Comments, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Comments, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Permission, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Permission)
-                    @Html.ValidationMessageFor(model => model.Permission, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
+    @Html.LabelFor(model => Model.PhoneNum, "Phone number:", htmlAttributes: new { style = "color:#ffffff" })
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
+    @Html.EditorFor(model => model.PhoneNum, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.PhoneNum, "", new { @class = "text-danger" })
+
+    @Html.LabelFor(model => Model.AptName, "Apartment Name:", htmlAttributes: new { style = "color:#ffffff" })
+
+    @Html.EditorFor(model => model.AptName, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.AptName, "", new { @class = "text-danger" })
+
+    @Html.LabelFor(model => Model.UnitNum, "Unit number:", htmlAttributes: new { style = "color:#ffffff" })
+
+    @Html.EditorFor(model => model.UnitNum, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.UnitNum, "", new { @class = "text-danger" })
+
+    @Html.LabelFor(model => Model.Comments, "Message:", htmlAttributes: new { style = "color:#ffffff" })
+
+    @Html.TextAreaFor(model => model.Comments, new { @class = "form-control", rows = 10, cols = 40, placeholder = "Explanation of request, maintanence required, or complaint. Please be specific." })
+    @Html.ValidationMessageFor(model => model.Comments, "", new { @class = "text-danger" })
+
+    <br />
+    <font color="white"><b>Select here to give permission for the landlord or representative to enter your unit. We will call first.</b></font>
+    @Html.CheckBoxFor(model => model.Permission)
+    @Html.ValidationMessageFor(model => model.Permission, "", new { @class = "text-danger" })
+    <br /><br />
+    <input class="btn btn-primary" type="submit" value="Submit" />
+    <br />
 }
 
 <div>

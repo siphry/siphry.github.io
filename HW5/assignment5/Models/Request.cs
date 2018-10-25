@@ -8,23 +8,39 @@ namespace assignment5.Models
 {
     public class Request
     {
-        [Key]
+        //sets form/database values 
+        //id key for database
+        [Key][Required]
         public int ID { get; set; }
-        [Required]
+        //first name input for form
+        [Required][Display(Name = "First Name")]
         public string FirstName { get; set; }
-        [Required]
+        //last name input
+        [Required][Display(Name = "Last Name")]
         public string LastName { get; set; }
+        //phone number -- phone number structure required
         [Required]
-        [Phone]
+        [Phone][Display(Name = "Phone Number")]
         public string PhoneNum { get; set; }
-        [Required]
+        //apartment name input string
+        [Required][Display(Name = "Apartment Name")]
         public string AptName { get; set; }
-        [Required]
+        //unit number input
+        [Required][Display(Name = "Unit Name")]
         public int UnitNum { get; set; }
-        [Required]
+        //string for comments/messages on request
+        [Required][Display(Name = "Comments")]
         public string Comments { get; set; }
-        [Required]
+        //permission checkbox/bool for entering apt
+        [Display(Name = "Permission")]
         public bool Permission { get; set; }
+        //gets current time from system for database
+        private DateTime date = DateTime.Now;
+        [Required][Display(Name = "Submission Time")]
+        public DateTime SubmissionTime {
+           get { return date; }
+           set { date = value; }
+        }
 
         //add a ToString method for testing
 
