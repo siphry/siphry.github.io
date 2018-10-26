@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using assignment5.DAL;
 
 namespace assignment5.Controllers
 {
@@ -21,10 +22,38 @@ namespace assignment5.Controllers
             return View();
         }
 
+        // POST: Requests/Create
         [HttpPost]
-        public ActionResult Maintanence(Request request)
+        [ValidateAntiForgeryToken]
+        public ActionResult Maintanence([Bind(Include = "ID,FirstName,LastName,PhoneNum,AptName,UnitNum,Comments,Permission,SubmissionTime")] Request request)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                db.Request.Add(request);
+                db.SaveChanges();
+                return RedirectToAction("RequestList");
+            }
+
+            return View(request);
+        }
+
+        private RequestContext db = new RequestContext();
+
+        // GET: Requests
+        public ActionResult RequestList()
+        {
+            var list = db.Request.ToList();
+            var orderedList = list.OrderBy(item => item.SubmissionTime);
+            return View(orderedList);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }

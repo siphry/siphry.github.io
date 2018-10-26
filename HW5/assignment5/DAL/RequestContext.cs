@@ -5,6 +5,7 @@ using System.Web;
 using System.Data.Entity;
 using assignment5.Models;
 
+//ACCESS TO DATABASE
 namespace assignment5.DAL
 {
     public class RequestContext : DbContext

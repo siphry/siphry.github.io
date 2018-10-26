@@ -10,7 +10,7 @@ namespace assignment5.Models
     {
         //sets form/database values 
         //id key for database
-        [Key][Required]
+        [Key]
         public int ID { get; set; }
         //first name input for form
         [Required][Display(Name = "First Name")]
@@ -20,7 +20,7 @@ namespace assignment5.Models
         public string LastName { get; set; }
         //phone number -- phone number structure required
         [Required]
-        [Phone][Display(Name = "Phone Number")]
+        [RegularExpression(@"^\d{3}-\d{3}-\d{4}$", ErrorMessage = "Please enter phone number in 555-555-5555 format."), Display(Name = "Phone Number")]
         public string PhoneNum { get; set; }
         //apartment name input string
         [Required][Display(Name = "Apartment Name")]
@@ -36,7 +36,7 @@ namespace assignment5.Models
         public bool Permission { get; set; }
         //gets current time from system for database
         private DateTime date = DateTime.Now;
-        [Required][Display(Name = "Submission Time")]
+        [Display(Name = "Submission Time")]
         public DateTime SubmissionTime {
            get { return date; }
            set { date = value; }

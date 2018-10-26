@@ -164,7 +164,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\RequestsController.cs" />
     <Compile Include="DAL\RequestContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -217,11 +216,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Maintanence.cshtml" />
-    <Content Include="Views\Requests\Create.cshtml" />
-    <Content Include="Views\Requests\Delete.cshtml" />
-    <Content Include="Views\Requests\Details.cshtml" />
-    <Content Include="Views\Requests\Edit.cshtml" />
-    <Content Include="Views\Requests\Index.cshtml" />
+    <Content Include="Views\Home\RequestList.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
