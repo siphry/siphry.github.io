@@ -171,6 +171,16 @@ After reviewing the grading rubric, I realized I needed to add something into th
 Re-creating this page in HTML was simple enough, but figuring out exactly how to use the Razor HTML helpers took me a moment to figure out, so I went to Alex for help with the pattern and required parts especially. I also got help from Stuart for how to use the ViewBag with the HTML -- originally I was thinking about making the color squals with HTML and CSS, and figuring out how the ViewBag might alter the CSS background-color etc...I didn't realize you could do that right in the HTML.
 
 ```csharp
+namespace assignment4.Controllers
+{
+    public class ColorController : Controller
+    {
+        // GET: Color
+        public ActionResult Index()
+        {
+            return View();
+        }
+
         /// <summary>
         /// GET method for user input of HEX color values
         /// </summary>
@@ -223,6 +233,8 @@ Re-creating this page in HTML was simple enough, but figuring out exactly how to
 
             return View();
         }
+    }
+}
 ```
 
 For this section, I got help from Alex to get started but once I got rolling everything fell into place. The lecture on Thursday helped quite a bit as well with using the Color object and ColorTranslation, moving the hex input back and forth from hex to argb, etc. According [this](https://msdn.microsoft.com/en-us/library/mt712639.aspx) documentation on the Color class, there should have been a method to go straight back to hex via the color object, but that method was missing from Visual Studio, so we went with this somewhat longer workout to get the new color back to html. Now that we have the new color, we can add them all the the ViewBag with html strings, including the plus and equal signs (or else they'd always be on the create page).
