@@ -16,7 +16,7 @@ The first elements I worked on were the request forms page and the model.
 
 For the forms page, at first I used the pre-generated html as shown in class but I really didn't like how it looked and I was having problems making all their columns work the way I wanted them too, so I just got rid of all the styling and I actually liked how the Razor code displayed on the page without and styling. After looking at other student's form pages though, I decided I should include some sort of organization beyond just adding the Razor forms so I placed them into two columns. It also took me a while to figure out how to get the fonts and labels to display the way I wanted, so that was originally hardcoded here until I figured out how to set everything with either the layout or with the model ([DisplayName]).
 
-```csharp
+```html
 @model assignment5.Models.Request
 
 @{
