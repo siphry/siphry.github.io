@@ -15,4 +15,5 @@ Email: stacia.i.fry@gmail.com
 [HW 2: Javascript, JQuery, DOM](https://siphry.github.io/HW2)  
 [HW 3: C#](https://siphry.github.io/HW3)  
 [HW 4: ASP.NET MVC 5](https://siphry.github.io/HW4)  
-HW 5: TBD...
+[HW 5: Simple Database Design](https://siphry.github.io/HW5)
+HW 6: TBD...
