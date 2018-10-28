@@ -176,9 +176,11 @@ I then added my connection string in my Web.config settings and auto-generated a
 
   ```csharp
   namespace assignment5.Controllers
-{
+  {
     public class HomeController : Controller
     {
+        private RequestContext db = new RequestContext();
+
         public ActionResult Index()
         {
             return View();
@@ -191,7 +193,12 @@ I then added my connection string in my Web.config settings and auto-generated a
             return View();
         }
 
-        // POST: Requests/Create
+        // POST: Requests/Maitanence
+        /// <summary>
+        /// POSTS new requests from the maintanence forms page to the database list
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Maintanence([Bind(Include = "ID,FirstName,LastName,PhoneNum,AptName,UnitNum,Comments,Permission,SubmissionTime")] Request request)
@@ -206,9 +213,11 @@ I then added my connection string in my Web.config settings and auto-generated a
             return View(request);
         }
 
-        private RequestContext db = new RequestContext();
-
         // GET: Requests
+        /// <summary>
+        /// Creates an ordered list of the database entities
+        /// </summary>
+        /// <returns></returns>
         public ActionResult RequestList()
         {
             var list = db.Request.ToList();
@@ -229,5 +238,16 @@ I then added my connection string in my Web.config settings and auto-generated a
 ```
 
 ### Step 8 [Testing]
+My seeded database table was extremely simple since I just used the one that Visual Studio auto-generates. It has a nice, clean look. But when I transfered the code to my home controller I forgot to change the name of the POST method to match my views, so that gave me a bit of a freak out why it suddenly wasn't working anymore! But I found the error quickly. 
+
+### Demo Screenshots
+![index](https://github.com/siphry/siphry.github.io/tree/master/HW5/images/index.PNG)  
+
+![request_list](https://github.com/siphry/siphry.github.io/tree/master/HW5/images/request_list.PNG)  
+
+![maintanence](https://github.com/siphry/siphry.github.io/tree/master/HW5/images/maintanence.PNG)  
+
+![request_list2](![request_list](https://github.com/siphry/siphry.github.io/tree/master/HW5/images/request_list2.PNG)  
 
 
+Since I misunderstood the first few lectures and for some reason focused more on the lecture and less on the instructions, I got very lost for this assignment but in the end...it was much more simpler than I had originally felt. The most common issue I saw others run into were naming convention problems with their model and database and connecting them together. I tried to work on everyone on my own by following the instructions on Mon/Tues, but got stuck in my head since I heard multiple times that this was the hardest assignment so I got lost trying to find walkthroughs or help online. It wasn't until Thursday that everything fell together and I was able to wrap up the webpage on Friday.
