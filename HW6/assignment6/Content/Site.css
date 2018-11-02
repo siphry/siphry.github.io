@@ -25,3 +25,16 @@
     right: 0%;
     bottom: 0%;
 }
+
+.detail_content {
+    padding: 5px;
+    padding-left: 15px;
+    background-color: lightsteelblue;
+    border: 3px;
+    border-style: solid;
+    border-color: black;
+}
+
+hr {
+    border-color: black;
+}

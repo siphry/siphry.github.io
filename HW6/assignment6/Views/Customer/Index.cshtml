@@ -4,7 +4,7 @@
     ViewBag.Title = "World Wide Importers";
 }
 
-@using (Html.BeginForm("Index", "Home", FormMethod.Get))
+@using (Html.BeginForm("Index", "Customer", FormMethod.Get))
 {
     <div class="row">
         <div class="col-sm-2"></div>
@@ -12,7 +12,7 @@
             <div class="form-group" align="center">
                 <h3>Client Search</h3>
                 <div class="searchbar">
-                    <input class="form-control" type="text" name="searchname" placeholder="Search by client name" />
+                    <input class="form-control" type="text" name="searchname" placeholder="Search by client name" required />
                     <button type="submit" class="btn btn-primary button btn">Search</button>
                 </div>
             </div>
@@ -22,10 +22,21 @@
 }
 
 
-<ul>
-    @foreach(var person in Model)
+@if (ViewBag.notFound != null)
+{
+    <p>@ViewBag.notFound</p>
+}
+else if (ViewBag.notNull == 1)
+{
+    if (ViewBag.search != null)
     {
-        <li> @Html.ActionLink(person.FullName, "Details", "Home", new { personName = person.FullName }, null)</li>
+        <p>@ViewBag.search</p>
     }
-</ul>
 
+    <ul>
+        @foreach (var person in Model)
+        {
+            <li> @Html.ActionLink(person.FullName, "Details", "Customer", new { personName = person.FullName }, null)</li>
+        }
+    </ul>
+}
