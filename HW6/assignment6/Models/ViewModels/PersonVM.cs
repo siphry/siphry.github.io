@@ -19,6 +19,7 @@ namespace assignment6.Models.ViewModels
         public string FaxNumber { get; set; }
         public string EmailAddress { get; set; }
         public DateTime ValidFrom { get; set; }
+        //list of clients who are also customers
         public IEnumerable<Customer> Customer { get; set; }
 
     }

@@ -85,8 +85,8 @@ namespace assignment6.Models.ViewModels
         public string FaxNumber { get; set; }
         public string EmailAddress { get; set; }
         public DateTime ValidFrom { get; set; }
+        //List of clients who are also customers
         public IEnumerable<Customer> Customer { get; set; }
-
     }
 }
 ```
@@ -135,13 +135,33 @@ namespace assignment6.Controllers
                 return View(searchResultDetails);
             }
         }
+        ...
 ```
 
 With that resulting string, I used Linq methods to create a list of PeopleVMs objects in which the FullName field of a Person from the People table in the database contains the searched value. I also populate my search result messages in this controller. Then, we return the list back to the into the view.
 
-If you go back to the html code above, you can see that when we added the names to our list of search results, the links create a new variable "personName" that contains the full name of that person which we send to the Details action method.
-
 Once our search results populated the list properly, we added some more validation techniques -- if someone edited the query string or if for some reason an empty search happened, we redirect back to the search page. 
+
+If you go back to the html code above, you can see that when we added the names to our list of search results, the links create a new variable "personName" that contains the full name of that person which we send to the Details action method. Then, in the details action method, we use that variable to create a single item list of PersonVM that holds all the details of the Person object of that name.
+
+```csharp
+[HttpGet]
+       public ActionResult Details(string personName)
+        {
+            if(personName == null || personName == "")
+            {
+                return RedirectToAction("Index");
+            }
+
+            //initialize empty model
+            var resultDetails = new FullDetailsVM();
+
+            //basic details for non customers
+            resultDetails.Person = db.People.Where(p => p.FullName == personName).Select(p => new PersonVM { PersonID = p.PersonID, FullName = p.FullName, PreferredName = p.PreferredName, PhoneNumber = p.PhoneNumber, FaxNumber = p.FaxNumber, EmailAddress = p.EmailAddress, ValidFrom = p.ValidFrom, Customer = p.Customers2 }).ToList();
+    ...
+```
+
+I use this list to posts the information to my details page by returning the list to the view. 
 
 ```html
 @model assignment6.Models.ViewModels.FullDetailsVM
@@ -170,3 +190,220 @@ Once our search results populated the list properly, we added some more validati
                 </div>
 ```
 
+Displaying the information here was the easiest part of the assignment since we had basically already did this in the last assignment (though I had forgotten since I used the scoffold generated code, so I had a mini freak out until Nick pointed out it was the same thing as before). I like to keep things simple so I just made a two column display, the left side displays all the details and the right holds a placehold image for the "photo" of the client. I placed each chunk of details into their own containers so they displayed separately. 
+
+### Step 4 [Content & Coding]
+
+While the first feature was fairly simple to implement, I had an *extremely* difficult time with feature #2. I knew that once the queries and any other extra ViewModels were written, displaying the data is easy, and adding some more testing/error handling is also not very difficult. But writing these queries was practically impossible for me -- I kept looking at the database from an SQL perspective, I understood how to tackle it with that syntax but could not get a grasp on how to navigate the tables and linked tables with LINQ for the life of me. I googled around and got hints from Nick and reviewed the class notes/code, but I just couldn't figure anything out. Dom eventually helped me out Sunday night with some examples. This was where I was eventually heading into -- creating separate ViewModels per section of information and adding everything to new variables. I just couldn't think of a way to link everything to the PersonID and PrimaryContactID until Dom helped me out...with a simple solution of just passing the ID into separate methods directly. 
+
+All of these new methods are in my HomeController. 
+
+```csharp
+...
+        /// <summary>
+        /// Searches database for customer id, and if they are one return the company details
+        /// </summary>
+        /// <param name="ID">searched Customer's ID</param>
+        /// <returns>Returns list of customers resulting from search via ID</returns>
+        private List<CustomerVM> CompDetails(int ID)
+        {
+            var companyDetails = db.Customers
+                                   .Where(c => c.PrimaryContactPersonID.Equals(ID))
+                                   .Select(c => new CustomerVM
+                                   {
+                                       CustomerID = c.CustomerID,
+                                       CustomerName = c.CustomerName,
+                                       PhoneNumber = c.PhoneNumber,
+                                       FaxNumber = c.FaxNumber,
+                                       WebsiteURL = c.WebsiteURL,
+                                       AccountStarted = c.AccountOpenedDate
+                                   }).ToList();
+
+            return companyDetails;
+        }
+
+        /// <summary>
+        /// Returns the total amount of orders made by specific customer via their ID
+        /// </summary>
+        /// <param name="ID">searched Customer's ID</param>
+        /// <returns>Total number of orders placed by customer</returns>
+        private int OrdersCount(int ID)
+        {
+            int ordersCount = db.Orders
+                                .Where(o => o.CustomerID.Equals(ID))
+                                .Count();
+
+            return ordersCount;
+        }
+
+        /// <summary>
+        /// Returns the total gross profit of all orders made by searched customer via their ID
+        /// </summary>
+        /// <param name="ID">searched Customer's ID</param>
+        /// <returns>Total gross of all orders made by searched customer</returns>
+        private decimal TotalGross(int ID)
+        {
+            decimal profitGross = db.Orders
+                               .Where(o => o.CustomerID.Equals(ID))
+                               .SelectMany(i => i.Invoices)
+                               .SelectMany(il => il.InvoiceLines)
+                               .Sum(s => s.ExtendedPrice);
+
+            return profitGross;
+        }
+
+        /// <summary>
+        /// Returns total profit of all orders made by searched customer via their ID
+        /// </summary>
+        /// <param name="ID">searched Customer's ID</param>
+        /// <returns>Total profit of all orders made by searched customer</returns>
+        private decimal TotalProfit(int ID)
+        {
+            decimal profitTotal = db.Orders
+                               .Where(o => o.CustomerID.Equals(ID))
+                               .SelectMany(i => i.Invoices)
+                               .SelectMany(il => il.InvoiceLines)
+                               .Sum(s => s.LineProfit);
+
+            return profitTotal;
+        }
+
+        private List<InvoiceVM> Top10Items(int ID)
+        {
+            var top10 = db.Orders
+                          .Where(o => o.CustomerID.Equals(ID))
+                          .SelectMany(i => i.Invoices)
+                          .SelectMany(il => il.InvoiceLines)
+                          .OrderByDescending(lp => lp.LineProfit)
+                          .Take(10)
+                          .Select(il => new InvoiceVM
+                          {
+                              StockID = il.StockItemID,
+                              Description = il.Description,
+                              TotalProfit = il.LineProfit,
+                          }).ToList();
+
+            var salesPerson = db.Orders
+                          .Where(o => o.CustomerID.Equals(ID))
+                          .SelectMany(i => i.Invoices)
+                          .SelectMany(il => il.InvoiceLines)
+                          .OrderByDescending(lp => lp.LineProfit)
+                          .Take(10)
+                          .Include("InvoiceID")
+                          .Select(x => x.Invoice)
+                          .Include("SalespersonID")
+                          .Select(x => x.Person4.FullName).ToList();
+
+            for(int i = 0; i < 10; i++)
+            {
+                top10.ElementAt(i).SalesPerson = salesPerson.ElementAt(i);
+            }
+
+            return top10;
+        }
+```
+
+Each method sends their information to a different ViewModel (CustomerVM and InvoiceVM which I will post at the bottom of the page along with FullDetailsVM), except for the methods dealing strictly with integer/decimal values. I use these methods to populate my ViewModel obj lists, linking everything via the CustomerID (except for generating the CustomerVM list, where I match the CustomerID to the PersonID from the PersonVM list). PersonVM contains a list of CustomerVMs for all clients that are customers, and then FullDetailsVM contains lists of PersonVM, CustomerVM, and InvoiceVM as well as the fields for the basic number values. I use FullDetailsVM to display the information for both customer and employee clients of the database.
+
+I couldn't figure out how to get the right sales person name without talking to Nick, who explained how to use .Include in the navigation property, so my InvoiceVM method generates two lists and then takes the information from the salesPerson list and adds it to the InvoiceVM list. 
+
+```csharp
+...
+            //if someone changes the query string to empty or different, redirects back to search page
+            if(resultDetails.Person.FirstOrDefault() == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            //prevents 404 error
+            if (resultDetails.Person.FirstOrDefault().Customer.Count() > 0)
+            {
+                //if searched client is a customer, fill in the rest of the details
+                resultDetails.Customer = CompDetails(resultDetails.Person.First().PersonID);
+
+                //if they are a customer, use their customer id to find information on their orders/profits/top 10 items
+                resultDetails.OrderCount = OrdersCount(resultDetails.Customer.First().CustomerID);
+
+                //total gross sales
+                resultDetails.GrossSales = TotalGross(resultDetails.Customer.First().CustomerID);
+
+                //total profit
+                resultDetails.GrossProfit = TotalProfit(resultDetails.Customer.First().CustomerID);
+
+                //top 10 most profitable items purchase
+                resultDetails.Invoice = Top10Items(resultDetails.Customer.First().CustomerID);
+            }
+
+            return View(resultDetails);
+        }
+```
+
+Then, I just displayed the information in the same pattern as before -- each section gets it's own div container using the same .css styling, and the top 10 items list is displayed in a table. The code is fairly similar to the example from Details.chtml above.
+
+### Final Thoughts & Video Demo
+This was a hard assignment. I really struggled with it all weekend until getting help from my classmates. I don't think I would have ever figured it out without them...this was the first time I struggled this hard with anything related to computer science. Usually after some researching I can at least figure out SOMETHING on my own, but this time I just couldn't get a grasp on anything.
+
+
+
+CustomerVM --
+
+```csharp
+/// <summary>
+/// ViewModel class to hold the details of a client from the database who is a customer
+/// </summary>
+namespace assignment6.Models.ViewModels
+{
+    public class CustomerVM
+    {
+        public int CustomerID { get; set; }
+        public string CustomerName { get; set; }
+        public string PhoneNumber { get; set; }
+        public string FaxNumber { get; set; }
+        public string WebsiteURL { get; set; }
+        public DateTime AccountStarted { get; set; }
+    }
+}
+```
+
+InvoiceVM --
+
+```csharp
+/// <summary>
+/// ViewModel class to hold the details of a client's order history, profit, and sales person
+/// </summary>
+/// 
+namespace assignment6.Models.ViewModels
+{
+    public class InvoiceVM
+    {
+        [Display(Name = "Stock ID")]
+        public int StockID { get; set; }
+        public string Description { get; set; }
+        [Display(Name = "Total Profit")]
+        public decimal TotalProfit { get; set; }
+        [Display(Name = "Sales Person")]
+        public string SalesPerson { get; set; }
+
+    }
+}
+```
+
+FullDetailsVM --
+
+```csharp
+/// <summary>
+/// ViewModel class to hold the details of a client's orders and total profit -- accesses prior VM lists
+/// </summary>
+namespace assignment6.Models.ViewModels
+{
+    public class FullDetailsVM
+    {
+        public IEnumerable<PersonVM> Person { get; set; }
+        public IEnumerable<CustomerVM> Customer { get; set; }
+        public IEnumerable<InvoiceVM> Invoice { get; set; }
+        public int OrderCount { get; set; }
+        public decimal GrossSales { get; set; }
+        public decimal GrossProfit { get; set; }
+    }
+}
+```

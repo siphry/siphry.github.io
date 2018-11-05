@@ -1,5 +1,5 @@
 ## Homework 5
-This assignment was designed in order for us to get comfortable with ASP.NET MVC 5 and creating a simple database. We did this by designing our own models and simple database with SQL. We also had more practice with HTTP GET and POST information passing.
+This assignment was designed in order for us to get comfortable with ASP.NET MVC 5, HTTP GET, and HTTP POST by creating two simple webpages requiring user input. We did this in two different ways -- via query strings and passing information via GET/POST parameters.  
 
 ### Links
 [Home](https://siphry.github.io)  
@@ -147,11 +147,11 @@ CREATE TABLE [dbo].[Requests]
     [FirstName]			NVARCHAR(64)			NOT NULL,
     [LastName]			NVARCHAR(128)		    NOT NULL,
     [PhoneNum]			NVARCHAR(15)            NOT NULL,
-	[AptName]			NVARCHAR(40)			NOT NULL,
-	[UnitNum]			INT						NOT NULL,
-	[Comments]			NVARCHAR(1000)			NOT NULL,
-	[Permission]		bit						NOT NULL,
-	[SubmissionTime]	DateTime				NOT NULL
+    [AptName]			NVARCHAR(40)			NOT NULL,
+    [UnitNum]			INT						NOT NULL,
+    [Comments]			NVARCHAR(1000)			NOT NULL,
+    [Permission]		bit						NOT NULL,
+    [SubmissionTime]	DateTime				NOT NULL
 	CONSTRAINT [PK_dbo.Requests] PRIMARY KEY CLUSTERED ([ID] ASC)
 );
 
