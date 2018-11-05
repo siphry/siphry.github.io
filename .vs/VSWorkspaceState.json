@@ -1,12 +1,15 @@
 {
   "ExpandedNodes": [
     "",
-    "\\HW4",
-    "\\HW4\\assignment4",
     "\\HW4\\assignment4\\Controllers",
     "\\HW4\\assignment4\\Views",
-    "\\HW4\\assignment4\\Views\\Home"
+    "\\HW4\\assignment4\\Views\\Home",
+    "\\HW6",
+    "\\HW6\\assignment6",
+    "\\HW6\\assignment6\\Views",
+    "\\HW6\\assignment6\\Views\\Customer",
+    "\\HW6\\assignment6\\Views\\Shared"
   ],
-  "SelectedNode": "\\HW4\\assignment4.sln",
+  "SelectedNode": "\\HW6\\assignment6\\Views\\Customer\\Index.cshtml",
   "PreviewInSolutionExplorer": false
 }
