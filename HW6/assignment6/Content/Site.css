@@ -33,8 +33,19 @@
     border: 3px;
     border-style: solid;
     border-color: black;
+    max-width: 75%;
 }
 
 hr {
     border-color: black;
+}
+
+.navbar {
+    background-color: lightsteelblue;
+    top: 0;
+    width: 100%;
+}
+
+tr:nth-child(even) {
+    background-color: steelblue;
 }

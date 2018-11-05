@@ -1,29 +1,90 @@
-﻿@model IEnumerable<assignment6.Models.ViewModels.PersonVM>
+﻿@model assignment6.Models.ViewModels.FullDetailsVM
 
 @{
     ViewBag.Title = "Details on Client";
 }
 <h2 align="center">@ViewBag.Title</h2>
-
-@foreach (var person in Model)
-{
     <div class="container">
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-9">
+                <hr />
                 <div class="detail_content">
-                    <h3><b>@Html.DisplayFor(item => person.FullName)</b></h3>
+                    <h3><b>@Model.Person.FirstOrDefault().FullName</b></h3>
                     <hr />
-                    <p><b>Full name:</b> @Html.DisplayFor(item => person.FullName)</p>
-                    <p><b>Preferred name:</b> @Html.DisplayFor(item => person.PreferredName)</p>
-                    <p><b>Phone number:</b> @Html.DisplayFor(item => person.PhoneNumber)</p>
-                    <p><b>Fax number:</b> @Html.DisplayFor(item => person.FaxNumber)</p>
-                    <p><b>Email address:</b> @Html.DisplayFor(item => person.EmailAddress)</p>
-                    <p><b>Member since:</b> @Html.DisplayFor(item => person.ValidFrom)</p>
+                    <p><b>Full name:</b> @Model.Person.FirstOrDefault().FullName</p>
+                    <p><b>Preferred name: </b>@Model.Person.FirstOrDefault().PreferredName</p>
+                    <p><b>Phone number:</b> @Model.Person.FirstOrDefault().PhoneNumber</p>
+                    <p><b>Fax number:</b> @Model.Person.FirstOrDefault().FaxNumber</p>
+                    <p>
+                        <b>Email address:</b> <a href="mailto: @Model.Person.FirstOrDefault().EmailAddress">
+                            @Model.Person.FirstOrDefault().EmailAddress
+                        </a>
+                    </p>
+                    <p><b>Member since:</b> @Model.Person.FirstOrDefault().ValidFrom</p>
                 </div>
+                <br />
+
+                @if (Model.Customer != null)
+                {
+                    <div class="detail_content">
+                        <h3><b>@Model.Customer.FirstOrDefault().CustomerName</b></h3>
+                        <hr />
+                        <p><b>Company name: </b> @Model.Customer.FirstOrDefault().CustomerName</p>
+                        <p><b>Phone number: </b>@Model.Customer.FirstOrDefault().PhoneNumber</p>
+                        <p><b>Fax number: </b> @Model.Customer.FirstOrDefault().FaxNumber</p>
+                        <p>
+                            <b>Website address: </b> <a href="@Model.Customer.FirstOrDefault().WebsiteURL">@Model.Customer.FirstOrDefault().WebsiteURL</a>
+                        </p>
+                        <p><b>Account opened:</b> @Model.Customer.FirstOrDefault().AccountStarted</p>
+                    </div>
+                    <br />
+                    <div class="detail_content">
+                        <h3><b>Purchases</b></h3>
+                        <hr />
+                        <p><b>Total orders:</b>@Model.OrderCount</p>
+                        <p><b>Gross sales: </b>@{string sales = String.Format("{0:C}", Model.GrossSales);} @sales</p>
+                        <p><b>Total profit: </b>@{string profit = String.Format("{0:C}", Model.GrossProfit);} @profit</p>
+                    </div>
+                    <br />
+                    <div class="detail_content">
+                        <table class="table">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(m => m.Invoice.FirstOrDefault().StockID)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(m => m.Invoice.FirstOrDefault().Description)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(m => m.Invoice.FirstOrDefault().TotalProfit)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(m => m.Invoice.FirstOrDefault().SalesPerson)
+                                </th>
+                            </tr>
+                            @foreach (var item in Model.Invoice)
+                            {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelIem => item.StockID)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelIem => item.Description)
+                                </td>
+                                <td>
+                                    @{string itemProfit = String.Format("{0:C}", item.TotalProfit);} @itemProfit
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelIem => item.SalesPerson)
+                                </td>
+                            </tr>
+                            }
+                        </table>
+                    </div>
+                }
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-3" style="text-align: right">
                 <img src=" https://via.placeholder.com/250x350?text=Photo" />
             </div>
         </div>
     </div>
-}
