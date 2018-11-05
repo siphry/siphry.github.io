@@ -136,3 +136,37 @@ namespace assignment6.Controllers
             }
         }
 ```
+
+With that resulting string, I used Linq methods to create a list of PeopleVMs objects in which the FullName field of a Person from the People table in the database contains the searched value. I also populate my search result messages in this controller. Then, we return the list back to the into the view.
+
+If you go back to the html code above, you can see that when we added the names to our list of search results, the links create a new variable "personName" that contains the full name of that person which we send to the Details action method.
+
+Once our search results populated the list properly, we added some more validation techniques -- if someone edited the query string or if for some reason an empty search happened, we redirect back to the search page. 
+
+```html
+@model assignment6.Models.ViewModels.FullDetailsVM
+
+@{
+    ViewBag.Title = "Details on Client";
+}
+<h2 align="center">@ViewBag.Title</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9">
+                <hr />
+                <div class="detail_content">
+                    <h3><b>@Model.Person.FirstOrDefault().FullName</b></h3>
+                    <hr />
+                    <p><b>Full name:</b> @Model.Person.FirstOrDefault().FullName</p>
+                    <p><b>Preferred name: </b>@Model.Person.FirstOrDefault().PreferredName</p>
+                    <p><b>Phone number:</b> @Model.Person.FirstOrDefault().PhoneNumber</p>
+                    <p><b>Fax number:</b> @Model.Person.FirstOrDefault().FaxNumber</p>
+                    <p>
+                        <b>Email address:</b> <a href="mailto: @Model.Person.FirstOrDefault().EmailAddress">
+                            @Model.Person.FirstOrDefault().EmailAddress
+                        </a>
+                    </p>
+                    <p><b>Member since:</b> @Model.Person.FirstOrDefault().ValidFrom</p>
+                </div>
+```
+
