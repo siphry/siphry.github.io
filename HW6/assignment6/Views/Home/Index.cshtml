@@ -4,7 +4,7 @@
     ViewBag.Title = "World Wide Importers";
 }
 
-@using (Html.BeginForm("Index", "Customer", FormMethod.Get))
+@using (Html.BeginForm("Index", "Home", FormMethod.Get))
 {
     <div class="row">
         <div class="col-sm-2"></div>
@@ -35,11 +35,11 @@ else if (ViewBag.notNull == 1)
         <p>@ViewBag.search</p>
     }
 
-    <ul>
+    <ul style="list-style-type: none;">
         <!--displays all results for search-->
         @foreach (var person in Model)
         {
-            <li> @Html.ActionLink(person.FullName, "Details", "Customer", new { personName = person.FullName }, null)</li>
+            <li> @Html.ActionLink(person.FullName, "Details", "Home", new { personName = person.FullName }, null)</li>
         }
     </ul>
 }

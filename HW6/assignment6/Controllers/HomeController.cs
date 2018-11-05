@@ -9,7 +9,7 @@ using assignment6.Models.ViewModels;
 
 namespace assignment6.Controllers
 {
-    public class CustomerController : Controller
+    public class HomeController : Controller
     {
         private WorldWideImportersContext db = new WorldWideImportersContext();
         List<PersonVM> searchResultDetails;
@@ -17,6 +17,7 @@ namespace assignment6.Controllers
         [HttpGet]
         public ActionResult Index()
         {
+            //request the query string value
             string searchName = Request.QueryString["searchname"];
 
             //if the search string is null or empty, return view (if edited in query string in url)
@@ -27,7 +28,7 @@ namespace assignment6.Controllers
             else
             {
                 //generates a list of all clients whose full name contains inputted search value
-                searchResultDetails = db.People.Where(p => p.FullName.Contains(searchName)).Where(p => p.PersonID != 1).Select(p => new PersonVM { FullName = p.FullName, PreferredName = p.PreferredName, PhoneNumber = p.PhoneNumber, FaxNumber = p.FaxNumber, EmailAddress = p.EmailAddress, ValidFrom = p.ValidFrom }).ToList();
+                searchResultDetails = db.People.Where(p => p.FullName.Contains(searchName)).Where(p => p.PersonID != 1).Select(p => new PersonVM { FullName = p.FullName}).ToList();
 
                 //adds message for searches with no results
                 if (searchResultDetails.FirstOrDefault() == null)
