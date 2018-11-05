@@ -4,6 +4,10 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 
+/// <summary>
+/// ViewModel class to hold the details of a client's order history, profit, and sales person
+/// </summary>
+/// 
 namespace assignment6.Models.ViewModels
 {
     public class InvoiceVM

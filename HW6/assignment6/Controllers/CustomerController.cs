@@ -29,12 +29,14 @@ namespace assignment6.Controllers
                 //generates a list of all clients whose full name contains inputted search value
                 searchResultDetails = db.People.Where(p => p.FullName.Contains(searchName)).Where(p => p.PersonID != 1).Select(p => new PersonVM { FullName = p.FullName, PreferredName = p.PreferredName, PhoneNumber = p.PhoneNumber, FaxNumber = p.FaxNumber, EmailAddress = p.EmailAddress, ValidFrom = p.ValidFrom }).ToList();
 
+                //adds message for searches with no results
                 if (searchResultDetails.FirstOrDefault() == null)
                 {
                     ViewBag.notFound = "No results found for: " + searchName;
                     string test = "No results found for: " + searchName;
               
                 }
+                //add message designating what was searched above the result list
                 else if (searchName != null)
                 {
                     ViewBag.search = "Search results for: " + searchName;
@@ -59,6 +61,7 @@ namespace assignment6.Controllers
             //basic details for non customers
             resultDetails.Person = db.People.Where(p => p.FullName == personName).Select(p => new PersonVM { PersonID = p.PersonID, FullName = p.FullName, PreferredName = p.PreferredName, PhoneNumber = p.PhoneNumber, FaxNumber = p.FaxNumber, EmailAddress = p.EmailAddress, ValidFrom = p.ValidFrom, Customer = p.Customers2 }).ToList();
 
+            //if someone changes the query string to empty or different, redirects back to search page
             if(resultDetails.Person.FirstOrDefault() == null)
             {
                 return RedirectToAction("Index");

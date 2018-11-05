@@ -21,19 +21,22 @@
     </div>
 }
 
-
+<!--if there are zero results, post message-->
 @if (ViewBag.notFound != null)
 {
     <p>@ViewBag.notFound</p>
 }
+//toggle to display result list for non-null search
 else if (ViewBag.notNull == 1)
 {
+    //posts message stating what was searched
     if (ViewBag.search != null)
     {
         <p>@ViewBag.search</p>
     }
 
     <ul>
+        <!--displays all results for search-->
         @foreach (var person in Model)
         {
             <li> @Html.ActionLink(person.FullName, "Details", "Customer", new { personName = person.FullName }, null)</li>

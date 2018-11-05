@@ -5,7 +5,7 @@ using System.Web;
 
 
 /// <summary>
-/// Class that contains specific details on the items purchased by clients of the database
+/// ViewModel class to hold the details of a client from the database who is a customer
 /// </summary>
 namespace assignment6.Models.ViewModels
 {

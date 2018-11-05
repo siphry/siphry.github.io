@@ -23,7 +23,7 @@
                     <p><b>Member since:</b> @Model.Person.FirstOrDefault().ValidFrom</p>
                 </div>
                 <br />
-
+                <!---DISPLAY FOR CUSTOMERS -- NO DISPLAY IF NON-CUSTOMER-->
                 @if (Model.Customer != null)
                 {
                     <div class="detail_content">
