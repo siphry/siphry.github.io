@@ -345,7 +345,7 @@ This was a hard assignment. I really struggled with it all weekend until getting
 
 ![Video Demo](https://www.youtube.com/watch?v=jicumTlESiE)
 
-CustomerVM --
+CustomerVM -- 
 
 ```csharp
 /// <summary>
