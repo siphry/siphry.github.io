@@ -343,7 +343,7 @@ Then, I just displayed the information in the same pattern as before -- each sec
 ### Final Thoughts & Video Demo
 This was a hard assignment. I really struggled with it all weekend until getting help from my classmates. I don't think I would have ever figured it out without them...this was the first time I struggled this hard with anything related to computer science. Usually after some researching I can at least figure out SOMETHING on my own, but this time I just couldn't get a grasp on anything.
 
-![Video Demo](https://www.youtube.com/watch?v=jicumTlESiE)
+[Video Demo](https://www.youtube.com/watch?v=jicumTlESiE)
 
 CustomerVM -- 
 
