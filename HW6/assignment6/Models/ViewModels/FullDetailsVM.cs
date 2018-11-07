@@ -16,5 +16,7 @@ namespace assignment6.Models.ViewModels
         public int OrderCount { get; set; }
         public decimal GrossSales { get; set; }
         public decimal GrossProfit { get; set; }
+        public double? Latitude { get; set; }
+        public double? Longitude { get; set; }
     }
 }

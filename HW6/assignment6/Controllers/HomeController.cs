@@ -85,6 +85,10 @@ namespace assignment6.Controllers
 
                 //top 10 most profitable items purchase
                 resultDetails.Invoice = Top10Items(resultDetails.Customer.First().CustomerID);
+
+                resultDetails.Latitude = Latitude(resultDetails.Customer.First().CustomerID);
+                resultDetails.Longitude = Longitude(resultDetails.Customer.First().CustomerID);
+
             }
 
             return View(resultDetails);
@@ -190,6 +194,40 @@ namespace assignment6.Controllers
             }
 
             return top10;
+        }
+
+        /// <summary>
+        /// Returns the latitude of the client's location
+        /// </summary>
+        /// <param name="ID">Customer ID of client</param>
+        /// <returns>Latitude</returns>
+        public double? Latitude(int ID)
+        {
+            //find the geographical location of the client
+            var Latitude = db.Customers
+                 .Where(o => o.CustomerID.Equals(ID))
+                 .Select(x => x.City)
+                 .Include("City")
+                 .Select(x => x.Location.Latitude).First();
+
+            return Latitude;
+        }
+
+        /// <summary>
+        /// Returns the longitude of the client's location
+        /// </summary>
+        /// <param name="ID">Customer ID of client</param>
+        /// <returns>Longitude</returns>
+        public double? Longitude(int ID)
+        {
+            //find the geographical location of the client
+            var Longitude = db.Customers
+                      .Where(o => o.CustomerID.Equals(ID))
+                      .Select(x => x.City)
+                      .Include("City")
+                      .Select(x => x.Location.Longitude).First();
+
+            return Longitude;
         }
     }
 }

@@ -49,3 +49,7 @@ hr {
 tr:nth-child(even) {
     background-color: steelblue;
 }
+
+#mapid {
+    height: 180px;
+}

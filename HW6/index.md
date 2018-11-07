@@ -341,9 +341,13 @@ I couldn't figure out how to get the right sales person name without talking to 
 Then, I just displayed the information in the same pattern as before -- each section gets it's own div container using the same .css styling, and the top 10 items list is displayed in a table. The code is fairly similar to the example from Details.chtml above.
 
 ### Final Thoughts & Video Demo
-This was a hard assignment. I really struggled with it all weekend until getting help from my classmates. I don't think I would have ever figured it out without them...this was the first time I struggled this hard with anything related to computer science. Usually after some researching I can at least figure out SOMETHING on my own, but this time I just couldn't get a grasp on anything.
+This was a hard assignment. I really struggled with it all weekend until getting help from my classmates. I don't think I would have ever figured it out without them...this was the first time I struggled this hard with anything related to computer science. Usually after some researching I can at least figure out SOMETHING on my own, but this time I just couldn't get a grasp on anything. 
 
 [![Video Demo](https://siphry.github.io/HW6/images/youtube.PNG)](https://www.youtube.com/watch?v=jicumTlESiE)
+
+I also added the extra credit after recording my video, see screenshots below.
+
+![extra_credit](https://siphry.github.io/HW6/images/extra_credit.PNG)  
 
 CustomerVM -- 
 
