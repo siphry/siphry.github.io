@@ -347,7 +347,7 @@ This was a hard assignment. I really struggled with it all weekend until getting
 
 I also added the extra credit after recording my video, see screenshots below.
 
-![extra_credit](https://siphry.github.io/HW6/images/extra_credit.PNG)  
+![extra_credit](https://siphry.github.io/HW6/images/extra_credits.PNG)  
 
 CustomerVM -- 
 
