@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "CS 460 Homework 7";
+}
+
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+        <div class="form-group" align="center">
+            <h2>Internet Language Translator</h2>
+            <br /><br />
+            <div class="searchbar">
+                <input type="text" name="search" placeholder="Start typing message here..." onkeyup="giphySearch(this)" />
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-2"></div>
+</div>
+
+@{
+    <script src="https://ajax.google.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="~/Scripts/search.js"></script>
+}
