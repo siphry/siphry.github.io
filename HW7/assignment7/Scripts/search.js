@@ -3,7 +3,7 @@ $("#search").keydown(function (event)
 {
     var last = "";
     if (event.keyCode == 32 || event.keyCode == 0) {
-        var userString = $("#search").val().toString().toLowerCase();
+        var userString = $("#search").val().toString();
         console.log(userString);
         var inputArray = userString.split(" ");
         console.log(inputArray);
@@ -11,8 +11,7 @@ $("#search").keydown(function (event)
         last = inputArray[num - 1];
         console.log(inputArray[num - 1]);
 
-
-        if (adjectives.includes(last) || nouns.includes(last) || verbs.includes(last)) {
+        if (adjectives.includes(last.toLowerCase()) || nouns.includes(last.toLowerCase()) || verbs.includes(last.toLowerCase())) {
             //send interesting word to controller via jquery.ajax
             console.log("in list");
             var source = "/API/Sticker/" + last
