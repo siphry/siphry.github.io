@@ -1,4 +1,4 @@
-namespace assignment7.Models
+﻿namespace assignment7.Models
 {
     using System;
     using System.Collections.Generic;
@@ -24,5 +24,9 @@ namespace assignment7.Models
         [Required]
         [StringLength(255)]
         public string Browser_Agent { get; set; }
+
+        [Required]
+        [StringLength(128)]
+        public string GiphyURL { get; set; }
     }
 }

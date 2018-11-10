@@ -14,7 +14,7 @@ namespace assignment7.Controllers
 {
     public class APIController : Controller
     {
-        private RecordContext db = new RecordContext();
+        private RecordsContext db = new RecordsContext();
 
         public JsonResult Sticker(string input)
         {
@@ -23,13 +23,13 @@ namespace assignment7.Controllers
             //System.Diagnostics.Debug.WriteLine("search word: " + input);
 
             string website = "https://api.giphy.com/v1/stickers/translate?api_key=" + apiKey + "&s=" + input;
-            
+
             var request = HttpWebRequest.Create(website);
-            //request.ContentType = "application/json; charset=utf-8";
+            request.ContentType = "application/json; charset=utf-8";
             var response = (HttpWebResponse)request.GetResponse();
 
-        string text, url, data;
-         
+            string text, url, data;
+
             using (var sr = new StreamReader(response.GetResponseStream()))
             {
                 text = sr.ReadToEnd();
@@ -44,13 +44,18 @@ namespace assignment7.Controllers
                 embed_url = url
             };
 
-            //var newRecord = new Record();
-            //newRecord.Date = DateTime.Now;
-            //newRecord.Input = input;
-            //newRecord.IP = HttpContext.Request.UserHostAddress;
-            //newRecord.Browser_Agent = HttpContext.Request.UserAgent;
-            //db.Record.Add(newRecord);
-            //db.SaveChanges();
+            var ip = Request.UserHostAddress;
+            var agent = Request.Browser.Type;
+            var newRecord = new Record
+            {
+                Date = DateTime.Now,
+                Input = input,
+                GiphyURL = sticker.embed_url,
+                IP = ip,
+                Browser_Agent = agent
+        };
+            db.Record.Add(newRecord);
+            db.SaveChanges();
 
             return Json(sticker, JsonRequestBehavior.AllowGet);
         }

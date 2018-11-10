@@ -7,12 +7,12 @@ using assignment7.Models;
 
 namespace assignment7.DAL
 {
-    public class RecordContext : DbContext
+    public class RecordsContext : DbContext
     {
-        public RecordContext() : base("name=SearchRecords")
-            {
+        public RecordsContext() : base("name=OurRecords")
+        {
 
-            }
+        }
 
         public virtual DbSet<Record> Record { get; set; }
 

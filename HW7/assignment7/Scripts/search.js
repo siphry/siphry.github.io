@@ -1,6 +1,5 @@
 ﻿//listens for keydowns, if space bar is pressed take the value, split it into an array, and check the last input
-$("#search").keydown(function (event)
-{
+$("#search").keydown(function (event) {
     var last = "";
     if (event.keyCode == 32 || event.keyCode == 0) {
         var userString = $("#search").val().toString();
