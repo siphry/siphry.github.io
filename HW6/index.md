@@ -1,5 +1,5 @@
 ## Homework 6
-This assignment was designed in order for us to get comfortable with ASP.NET MVC 5, HTTP GET, and HTTP POST by creating two simple webpages requiring user input. We did this in two different ways -- via query strings and passing information via GET/POST parameters.  
+The purpose of this assignment was for us to become comfortable with working with existing databases with MVC ASP.NET by restoring and displaying the pre-existing database via SMSS and MVC. 
 
 ### Links
 [Home](https://siphry.github.io)  
