@@ -3,18 +3,13 @@ $("#search").keydown(function (event) {
     var last = "";
     if (event.keyCode == 32 || event.keyCode == 0) {
         var userString = $("#search").val().toString();
-        console.log(userString);
         var inputArray = userString.split(" ");
-        console.log(inputArray);
         var num = inputArray.length;
         last = inputArray[num - 1];
-        console.log(inputArray[num - 1]);
 
         if (adjectives.includes(last.toLowerCase()) || nouns.includes(last.toLowerCase()) || verbs.includes(last.toLowerCase())) {
             //send interesting word to controller via jquery.ajax
-            console.log("in list");
             var source = "/API/Sticker/" + last
-            console.log(source);
             $.ajax({
                 method: "GET",
                 dataType: "json",
@@ -31,8 +26,6 @@ $("#search").keydown(function (event) {
 
 function successSticker(sticker) {
     //add stick url to index
-    console.log(sticker.embed_url);
-    console.log("IT WORKS??!?!");
     $(".translation").append("<iframe src='" + sticker.embed_url + "' height='150' width='150' frameBorder='0' align='middle'>");
 }
 

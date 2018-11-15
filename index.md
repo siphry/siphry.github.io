@@ -17,4 +17,5 @@ Email: stacia.i.fry@gmail.com
 [HW 4: ASP.NET MVC 5](https://siphry.github.io/HW4)  
 [HW 5: Simple Database Design](https://siphry.github.io/HW5)  
 [HW 6: Working with an Existing Database](https://siphry.github.io/HW6)  
-HW 7: TBD...  
+[HW 7: AJAX Single Page App](https://siphry.github.io/HW7)  
+HW 8: TBD...  

@@ -19,8 +19,6 @@ namespace assignment7.Controllers
         public JsonResult Sticker(string input)
         {
             string apiKey = System.Configuration.ConfigurationManager.AppSettings["id"];
-            //System.Diagnostics.Debug.WriteLine("API key:" + apiKey);
-            //System.Diagnostics.Debug.WriteLine("search word: " + input);
 
             string website = "https://api.giphy.com/v1/stickers/translate?api_key=" + apiKey + "&s=" + input;
             System.Diagnostics.Debug.WriteLine("search url: " + website);
@@ -30,21 +28,24 @@ namespace assignment7.Controllers
             var response = (HttpWebResponse)request.GetResponse();
 
             string text, url, data;
-
+            //reads the JSON object and places it into a string
             using (var sr = new StreamReader(response.GetResponseStream()))
             {
                 text = sr.ReadToEnd();
                 sr.Close();
             }
-            //System.Diagnostics.Debug.WriteLine(text);
+            //parses the string into the data key values
             data = JObject.Parse(text)["data"].ToString();
+            //parses the string to the embed_url value 
             url = JObject.Parse(data)["embed_url"].ToString();
-            //System.Diagnostics.Debug.WriteLine(url);
+            
+            //creats a json type object to send back to the view/javascript
             var sticker = new
             {
                 embed_url = url
             };
 
+            //database information
             var ip = Request.UserHostAddress;
             var agent = Request.Browser.Type;
             var newRecord = new Record
