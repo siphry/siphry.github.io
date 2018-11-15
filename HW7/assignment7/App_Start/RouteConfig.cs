@@ -14,9 +14,9 @@ namespace assignment7
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "APIRequest",
-                url: "{controller}/{action}/{input}",
-                defaults: new { controller = "API", action = "Sticker" }
+                name: "APIRequest", //name of route
+                url: "{controller}/{action}/{input}", //structure of route, 'input' is parameter label in the controller REQUIRED
+                defaults: new { controller = "API", action = "Sticker" } //the new path, APIController to Sticker(string input)
                 );
 
             routes.MapRoute(

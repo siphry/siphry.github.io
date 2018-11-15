@@ -24,16 +24,16 @@ $("#search").keydown(function (event) {
             })
         } else {
             //add regular word \to index via Jquery
-            $(".message").append(last + " ");
+            $(".translation").append(last + " ");
         }
     }
 });
 
 function successSticker(sticker) {
     //add stick url to index
-    console.log(sticker);
+    console.log(sticker.embed_url);
     console.log("IT WORKS??!?!");
-    $(".message").append("<iframe src='" + sticker.embed_url + "' height='150' width='150' frameBorder='0' align='middle'>");
+    $(".translation").append("<iframe src='" + sticker.embed_url + "' height='150' width='150' frameBorder='0' align='middle'>");
 }
 
 //if the pass didn't work

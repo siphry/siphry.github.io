@@ -23,6 +23,7 @@ namespace assignment7.Controllers
             //System.Diagnostics.Debug.WriteLine("search word: " + input);
 
             string website = "https://api.giphy.com/v1/stickers/translate?api_key=" + apiKey + "&s=" + input;
+            System.Diagnostics.Debug.WriteLine("search url: " + website);
 
             var request = HttpWebRequest.Create(website);
             request.ContentType = "application/json; charset=utf-8";
