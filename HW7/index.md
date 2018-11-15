@@ -172,5 +172,5 @@ Finally, I tackled the database aspects. I had the most trouble with getting thi
 ```
 
 ### Video Demo
-
+[![Video Demo](https://siphry.github.io/HW7/images/youtube.PNG)](https://www.youtube.com/watch?v=1GJxwFHUFNc&t=4s)
 
