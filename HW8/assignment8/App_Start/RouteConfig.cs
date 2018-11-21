@@ -13,6 +13,12 @@ namespace assignment8
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+           // routes.MapRoute(
+           //    name: "UpdateBids",
+           //    url: "{controller}/{action}/{itemId}",
+           //    defaults: new { controller = "Items", action = "Update", itemId = UrlParameter.Optional }
+           //);
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
