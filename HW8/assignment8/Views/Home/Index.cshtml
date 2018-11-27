@@ -1,7 +1,58 @@
-﻿
+﻿@model List<assignment8.Models.Bid>
+
 @{
     ViewBag.Title = "REGINALD'S ANCIENT ANTIQUITIES AUCTION HOUSE";
 }
 
 <h2>WELCOME TO REGINALD'S ANCIENT ANTIQUITIES AUCTION HOUSE</h2>
+
+<hr /><br />
+<h4>Ten Most Recent Bids</h4>
+<div class="detail_content">
+    <table class="table">
+        <tr>
+            <th>
+                Item ID
+            </th>
+            <th>
+                Item Name
+            </th>
+            <th>
+                Buyer
+            </th>
+            <th>
+                Bid Amount
+            </th>
+            <th>
+                Bid Time
+            </th>
+        </tr>
+        @foreach (var recentBid in Model)
+        {
+        <tr>
+            <td>
+                @recentBid.Item1.ItemId
+            </td>
+            <td>
+               @Html.ActionLink(recentBid.Item1.Name, "Details", "Items", new { id = recentBid.Item1.ItemId}, null)
+            </td>
+            <td>
+                @recentBid.Buyer1.Name
+            </td>
+            <td>
+                @recentBid.Price
+            </td>
+            <td>
+                @if (recentBid.Timestamp.Date == DateTime.Today)
+                {
+                    DateTime today = recentBid.Timestamp;
+                    @today.ToString("h:mm:ss tt")
+                }
+                else
+                { @recentBid.Timestamp }
+            </td>
+        </tr>
+        }
+    </table>
+</div>
 

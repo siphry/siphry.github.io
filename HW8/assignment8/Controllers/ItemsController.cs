@@ -46,8 +46,7 @@ namespace assignment8.Controllers
                 buyer = recent.Buyer1.Name,
                 price = recent.Price
             };
-            System.Diagnostics.Debug.WriteLine(latestBid.buyer);
-            System.Diagnostics.Debug.WriteLine(latestBid.price);
+            
             return Json(latestBid, JsonRequestBehavior.AllowGet);
         }
 

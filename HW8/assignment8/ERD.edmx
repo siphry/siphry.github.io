@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="OurItemsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bids">
+          <Key>
+            <PropertyRef Name="BidId" />
+          </Key>
+          <Property Name="BidId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Item" Type="int" Nullable="false" />
+          <Property Name="Buyer" Type="int" Nullable="false" />
+          <Property Name="Price" Type="int" Nullable="false" />
+          <Property Name="Timestamp" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Buyers">
+          <Key>
+            <PropertyRef Name="BuyerId" />
+          </Key>
+          <Property Name="BuyerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Items">
+          <Key>
+            <PropertyRef Name="ItemId" />
+          </Key>
+          <Property Name="ItemId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Seller" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sellers">
+          <Key>
+            <PropertyRef Name="SellerId" />
+          </Key>
+          <Property Name="SellerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Bids_Buyers">
+          <End Role="Buyers" Type="Self.Buyers" Multiplicity="1" />
+          <End Role="Bids" Type="Self.Bids" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Buyers">
+              <PropertyRef Name="BuyerId" />
+            </Principal>
+            <Dependent Role="Bids">
+              <PropertyRef Name="Buyer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bids_Items">
+          <End Role="Items" Type="Self.Items" Multiplicity="1" />
+          <End Role="Bids" Type="Self.Bids" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="ItemId" />
+            </Principal>
+            <Dependent Role="Bids">
+              <PropertyRef Name="Item" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Items_Sellers">
+          <End Role="Sellers" Type="Self.Sellers" Multiplicity="1" />
+          <End Role="Items" Type="Self.Items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sellers">
+              <PropertyRef Name="SellerId" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="Seller" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OurItemsModelStoreContainer">
+          <EntitySet Name="Bids" EntityType="Self.Bids" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Buyers" EntityType="Self.Buyers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sellers" EntityType="Self.Sellers" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Bids_Buyers" Association="Self.FK_Bids_Buyers">
+            <End Role="Buyers" EntitySet="Buyers" />
+            <End Role="Bids" EntitySet="Bids" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bids_Items" Association="Self.FK_Bids_Items">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Bids" EntitySet="Bids" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Items_Sellers" Association="Self.FK_Items_Sellers">
+            <End Role="Sellers" EntitySet="Sellers" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OurItemsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Bid">
+          <Key>
+            <PropertyRef Name="BidId" />
+          </Key>
+          <Property Name="BidId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Item" Type="Int32" Nullable="false" />
+          <Property Name="Buyer" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <Property Name="Timestamp" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Buyer1" Relationship="Self.FK_Bids_Buyers" FromRole="Bids" ToRole="Buyers" />
+          <NavigationProperty Name="Item1" Relationship="Self.FK_Bids_Items" FromRole="Bids" ToRole="Items" />
+        </EntityType>
+        <EntityType Name="Buyer">
+          <Key>
+            <PropertyRef Name="BuyerId" />
+          </Key>
+          <Property Name="BuyerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Bids" Relationship="Self.FK_Bids_Buyers" FromRole="Buyers" ToRole="Bids" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="ItemId" />
+          </Key>
+          <Property Name="ItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Seller" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Bids" Relationship="Self.FK_Bids_Items" FromRole="Items" ToRole="Bids" />
+          <NavigationProperty Name="Seller1" Relationship="Self.FK_Items_Sellers" FromRole="Items" ToRole="Sellers" />
+        </EntityType>
+        <EntityType Name="Seller">
+          <Key>
+            <PropertyRef Name="SellerId" />
+          </Key>
+          <Property Name="SellerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Items" Relationship="Self.FK_Items_Sellers" FromRole="Sellers" ToRole="Items" />
+        </EntityType>
+        <Association Name="FK_Bids_Buyers">
+          <End Role="Buyers" Type="Self.Buyer" Multiplicity="1" />
+          <End Role="Bids" Type="Self.Bid" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Buyers">
+              <PropertyRef Name="BuyerId" />
+            </Principal>
+            <Dependent Role="Bids">
+              <PropertyRef Name="Buyer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bids_Items">
+          <End Role="Items" Type="Self.Item" Multiplicity="1" />
+          <End Role="Bids" Type="Self.Bid" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="ItemId" />
+            </Principal>
+            <Dependent Role="Bids">
+              <PropertyRef Name="Item" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Items_Sellers">
+          <End Role="Sellers" Type="Self.Seller" Multiplicity="1" />
+          <End Role="Items" Type="Self.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sellers">
+              <PropertyRef Name="SellerId" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="Seller" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OurItemsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bids" EntityType="Self.Bid" />
+          <EntitySet Name="Buyers" EntityType="Self.Buyer" />
+          <EntitySet Name="Items" EntityType="Self.Item" />
+          <EntitySet Name="Sellers" EntityType="Self.Seller" />
+          <AssociationSet Name="FK_Bids_Buyers" Association="Self.FK_Bids_Buyers">
+            <End Role="Buyers" EntitySet="Buyers" />
+            <End Role="Bids" EntitySet="Bids" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bids_Items" Association="Self.FK_Bids_Items">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Bids" EntitySet="Bids" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Items_Sellers" Association="Self.FK_Items_Sellers">
+            <End Role="Sellers" EntitySet="Sellers" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OurItemsModelStoreContainer" CdmEntityContainer="OurItemsEntities">
+          <EntitySetMapping Name="Bids">
+            <EntityTypeMapping TypeName="OurItemsModel.Bid">
+              <MappingFragment StoreEntitySet="Bids">
+                <ScalarProperty Name="BidId" ColumnName="BidId" />
+                <ScalarProperty Name="Item" ColumnName="Item" />
+                <ScalarProperty Name="Buyer" ColumnName="Buyer" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Buyers">
+            <EntityTypeMapping TypeName="OurItemsModel.Buyer">
+              <MappingFragment StoreEntitySet="Buyers">
+                <ScalarProperty Name="BuyerId" ColumnName="BuyerId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Items">
+            <EntityTypeMapping TypeName="OurItemsModel.Item">
+              <MappingFragment StoreEntitySet="Items">
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Seller" ColumnName="Seller" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sellers">
+            <EntityTypeMapping TypeName="OurItemsModel.Seller">
+              <MappingFragment StoreEntitySet="Sellers">
+                <ScalarProperty Name="SellerId" ColumnName="SellerId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

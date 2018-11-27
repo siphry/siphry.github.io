@@ -21,6 +21,7 @@ CREATE TABLE [dbo].[Items]
 
 CREATE TABLE [dbo].[Bids]
 (	
+	[BidId] INT IDENTITY (0, 1) NOT NULL PRIMARY KEY, 
 	[Item] INT NOT NULL,
     CONSTRAINT [FK_Bids_Items] FOREIGN KEY ([Item]) REFERENCES [Items]([ItemId]),
 	[Buyer] INT NOT NULL,

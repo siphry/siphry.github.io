@@ -18,4 +18,5 @@ Email: stacia.i.fry@gmail.com
 [HW 5: Simple Database Design](https://siphry.github.io/HW5)  
 [HW 6: Working with an Existing Database](https://siphry.github.io/HW6)  
 [HW 7: AJAX Single Page App](https://siphry.github.io/HW7)  
-HW 8: TBD...  
+[HW 8: Multitable Relational Database](https://siphry.github.io/HW8)  
+HW 9: TBD...  

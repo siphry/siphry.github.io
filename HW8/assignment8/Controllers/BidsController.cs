@@ -30,10 +30,10 @@ namespace assignment8.Controllers
         {
             if (ModelState.IsValid)
             {
+                //controll to make sure only bids higher than current bid can be made
                 Item item = db.Items.Where(i => i.ItemId.Equals(bid.Item)).FirstOrDefault();
                 Bid recent = item.Bids.LastOrDefault();
-                System.Diagnostics.Debug.WriteLine(recent.Price);
-                if(bid.Price > recent.Price)
+                if(recent == null || bid.Price > recent.Price)
                 {
                     db.Bids.Add(bid);
                     db.SaveChanges();
