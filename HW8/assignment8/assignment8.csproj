@@ -108,27 +108,10 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="ERD.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ERD.edmx</DependentUpon>
-      <LastGenOutput>ERD.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="ERD.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ERD.edmx</DependentUpon>
-      <LastGenOutput>ERD.cs</LastGenOutput>
-    </Content>
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="ERD.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ERD.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="ERD.edmx.diagram">
-      <DependentUpon>ERD.edmx</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -140,45 +123,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Bid.cs">
-      <DependentUpon>ERD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Buyer.cs">
-      <DependentUpon>ERD.tt</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\BidsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ItemsController.cs" />
-    <Compile Include="ERD.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ERD.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ERD.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ERD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ERD.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ERD.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="DAL\AuctionContext.cs" />
-    <Compile Include="Item.cs">
-      <DependentUpon>ERD.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Bid.cs" />
     <Compile Include="Models\Buyer.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\Seller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Seller.cs">
-      <DependentUpon>ERD.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />

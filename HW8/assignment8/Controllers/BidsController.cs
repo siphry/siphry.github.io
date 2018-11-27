@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using assignment8.Models;
 using System.Data.Entity;
 using System.Data;
+using assignment8.Models;
 
 namespace assignment8.Controllers
 {
