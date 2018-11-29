@@ -1,4 +1,4 @@
-## Homework 7
+## Homework 8
 Homework 8's goal is to get us prepared for the final exam!
 
 ### Links
