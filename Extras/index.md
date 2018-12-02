@@ -509,7 +509,7 @@ function refresh() {
 ```
 
 ### Links
-[Git Cheat Sheet](https://siphry.github.io/Extras/git.md)  
+[Git Cheat Sheet](https://siphry.github.io/Extras/notes.html)  
 [W3Schools - Razor](https://www.w3schools.com/ASP/webpages_razor.asp)  
 [W3Schools - Javascript](https://www.w3schools.com/js/default.asp)  
 [W3Schools - HTML](https://www.w3schools.com/html/default.asp)  
