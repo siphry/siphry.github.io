@@ -19,5 +19,5 @@ Email: stacia.i.fry@gmail.com
 [HW 6: Working with an Existing Database](https://siphry.github.io/HW6)  
 [HW 7: AJAX Single Page App](https://siphry.github.io/HW7)  
 [HW 8: Multitable Relational Database](https://siphry.github.io/HW8)  
-[HW 9:  Live Database Deployment via Azure](https://siphry.github.io/HW9) 
+[HW 9:  Live Database Deployment via Azure](https://siphry.github.io/HW9)   
 [Extras](https://siphry.github.io/Extras)  
