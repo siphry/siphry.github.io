@@ -1,12 +1,3 @@
----
-layout: notes
-title: Cheat Sheet
-permalink: /notes/
----
-
-<h1 id="git">GIT</h1>
-<hr>
-
 ##### Configure User Info
 Configure user information for all local repositories
 
