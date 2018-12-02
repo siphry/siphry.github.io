@@ -1,6 +1,6 @@
-## HW8 and HW9 Code and Steps
+# HW8 and HW9 Code and Steps
 
-### Setting up the Database and CRUD
+## Setting up the Database and CRUD
 1. Create MDF file and connect to server.
 2. Create a table into connected database.
 3. Use auto generator to create up script -- BUILD. 
@@ -9,9 +9,9 @@
 6. Scaffold the CRUD for whatever model required.
 7. Write the rest of the requirements as needed. 
 
-### Code Snippets  
+## Code Snippets  
 
-#### Up and down scripts:
+### Up and down scripts:
 
 ```sql
 CREATE TABLE [dbo].[Buyers]
@@ -83,7 +83,7 @@ DROP TABLE [dbo].[Items];
 DROP TABLE [dbo].[Bids];
 ```
 
-#### Controllers
+### Controllers
 
 Home Controller:
 ```csharp
@@ -319,7 +319,7 @@ namespace assignment8.Controllers
 }
 ```
 
-#### Views
+### Views
 
 Main home index
 
@@ -461,7 +461,7 @@ Details View for Items
 }
 ```
 
-#### Javascript
+### Javascript
 
 Update script for Items Details
 
