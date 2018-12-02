@@ -38,7 +38,7 @@ namespace assignment8.Controllers
 
         public JsonResult Update(int id)
         {
-            Item item = db.Items.Where(i => i.ItemId.Equals(id)).FirstOrDefault();
+            Item item = db.Items.Find(id);
             Bid recent = item.Bids.LastOrDefault();
             var latestBid = new
             {

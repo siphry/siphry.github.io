@@ -8,6 +8,12 @@
 5. Do not move Context to DAL folder!!
 6. Scaffold the CRUD for whatever model required.
 7. Write the rest of the requirements as needed. 
+8. To publish: 
+    *Change Azure DB Connection String name to name in local Webconfig.
+    *Rebuild
+    *Connect to Azure DB in VS
+    *Run up script on Azure DB
+    *Publish!
 
 ## Code Snippets  
 
@@ -501,3 +507,12 @@ function refresh() {
     window.setInterval(ajax_call, interval);
 }
 ```
+
+### Links
+[Git Cheat Sheet](https://siphry.github.io/Extras/git.md)  
+[W3Schools - Razor](https://www.w3schools.com/ASP/webpages_razor.asp)  
+[W3Schools - Javascript](https://www.w3schools.com/js/default.asp)  
+[W3Schools - HTML](https://www.w3schools.com/html/default.asp)  
+[Microsoft - Razor](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-2.1)  
+[JQuery Cheat Sheet](https://oscarotero.com/jquery/)  
+[Scot's Azure DB Video](http://www.wou.edu/~morses/classes/cs46x/lecture/Videos.html)  
