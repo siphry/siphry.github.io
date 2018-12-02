@@ -9,11 +9,11 @@
 6. Scaffold the CRUD for whatever model required.
 7. Write the rest of the requirements as needed. 
 8. To publish: 
-    *Change Azure DB Connection String name to name in local Webconfig.
-    *Rebuild
-    *Connect to Azure DB in VS
-    *Run up script on Azure DB
-    *Publish!
+    *Change Azure DB Connection String name to name in local Webconfig.  
+    *Rebuild  
+    *Connect to Azure DB in VS  
+    *Run up script on Azure DB  
+    *Publish!  
 
 ## Code Snippets  
 
