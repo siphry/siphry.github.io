@@ -510,6 +510,8 @@ function refresh() {
 
 ### Links
 [Git Cheat Sheet](https://siphry.github.io/Cheats)  
+[Git Merge](https://stackoverflow.com/questions/5601931/best-and-safest-way-to-merge-a-git-branch-into-master)  
+[Git Merge w/ Conflicts](https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/)  
 [W3Schools - Razor](https://www.w3schools.com/ASP/webpages_razor.asp)  
 [W3Schools - Javascript](https://www.w3schools.com/js/default.asp)  
 [W3Schools - HTML](https://www.w3schools.com/html/default.asp)  
